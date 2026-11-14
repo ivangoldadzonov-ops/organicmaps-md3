@@ -1,5 +1,7 @@
 # Organic Maps — Material Design 3 redesign
 
+[![Pages](https://github.com/ivangoldadzonov-ops/organicmaps-md3/actions/workflows/pages.yml/badge.svg)](https://ivangoldadzonov-ops.github.io/organicmaps-md3/)
+
 Редизайн интерфейса [Organic Maps](https://organicmaps.app) по правилам **Material Design 3**: дизайн-система, машинно-читаемые токены, интерактивный прототип и готовые к переносу реализации токенов под Android (Compose), iOS (SwiftUI) и десктоп (QML).
 
 > Это **дизайн-проект**, а не форк приложения. Код приложения не менялся — здесь лежит всё, что нужно, чтобы команда Organic Maps внедрила новый интерфейс: токены, спецификации, экраны и код.
