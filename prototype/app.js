@@ -16,6 +16,339 @@
   /* ── Map artwork injection ─────────────────────────────────── */
   const mapTemplate = document.getElementById("map-template");
 
+  /* ── Localization ──────────────────────────────────────────── */
+  const translations = {
+    en: {
+      "meta.title": "Organic Maps — Material Design 3 concept",
+      "meta.desc": "Organic Maps redesign concept built with Material Design 3: five screens, light and dark themes, interactive prototype.",
+      "tabs.map": "Map",
+      "tabs.nav": "Navigation",
+      "tabs.search": "Search",
+      "tabs.place": "Place",
+      "tabs.settings": "Settings",
+      "topbar.lang": "Language",
+      "topbar.themeTitle": "Light / dark theme",
+      "topbar.themeAria": "Switch theme",
+      "topbar.allTitle": "All screens",
+      "topbar.allAria": "Show all screens",
+      "map.searchPlaceholder": "Search places and addresses",
+      "map.layersTitle": "Map layers",
+      "map.layersAria": "Map layers",
+      "map.orientTitle": "Map orientation",
+      "map.orientAria": "Map orientation",
+      "map.locateTitle": "My location",
+      "map.locateAria": "My location",
+      "map.zoomIn": "Zoom in",
+      "map.zoomOut": "Zoom out",
+      "layers.terrain": "Terrain",
+      "layers.bike": "Bike lanes",
+      "layers.subway": "Subway",
+      "cat.food": "Food",
+      "cat.cafes": "Cafes",
+      "cat.fuel": "Fuel",
+      "cat.hotels": "Hotels",
+      "nearby.title": "Nearby",
+      "nearby.all": "See all",
+      "nearby.coffeeName": "Coffeemania",
+      "nearby.coffeeMeta": 'Cafe · 320 m · <b class="open">Open</b>',
+      "nearby.canteenName": "Canteen No. 1",
+      "nearby.canteenMeta": 'Lunch · 540 m · <b class="open">Open</b>',
+      "nearby.parkName": "Patriarch Ponds",
+      "nearby.parkMeta": "Park · 760 m · <b>Open 24/7</b>",
+      "rating.4_6": "4.6",
+      "rating.4_4": "4.4",
+      "rating.4_8": "4.8",
+      "nav.label": "Main navigation",
+      "navTab.map": "Map",
+      "navTab.search": "Search",
+      "navTab.route": "Route",
+      "navTab.saved": "Saved",
+      "navTab.more": "More",
+      "nav.maneuverDistance": "In 200 m",
+      "nav.maneuverInstruction": "turn right onto Tverskaya St",
+      "nav.then": "then",
+      "nav.soundAria": "Navigation sound",
+      "nav.speed": "47<span>km/h</span>",
+      "nav.etaValue": "12 min",
+      "nav.etaSub": "4.2 km · arrive at 9:53",
+      "nav.endAria": "End route",
+      "nav.modeCar": "Car",
+      "nav.modeBike": "Bike",
+      "nav.modeWalk": "Walk",
+      "nav.modeTransit": "Transit",
+      "nav.alt1km": "4.2 km",
+      "nav.alt1min": "12 min",
+      "nav.alt1tag": "no traffic",
+      "nav.alt2km": "5.6 km",
+      "nav.alt2min": "17 min",
+      "nav.alt2tag": "via center",
+      "nav.alt3km": "3.9 km",
+      "nav.alt3min": "19 min",
+      "nav.alt3tag": "traffic",
+      "nav.offline": "Offline map",
+      "nav.share": "Share",
+      "search.backAria": "Back",
+      "search.queryAria": "Search query",
+      "search.clearAria": "Clear",
+      "search.value": "coffee",
+      "search.chipOpen": "Open now",
+      "search.chipNearby": "Nearby",
+      "search.chipRating": "4.5+",
+      "search.chipSpecialty": "Specialty",
+      "search.best": "Best result",
+      "search.more14": "14 more places",
+      "search.bestMeta": "Cafe · 8 Tverskaya St",
+      "search.bestTags": '<b class="open">Open until 23:00</b> · 320 m · 4.6 ★',
+      "search.surfMeta": "Coffee shop · 480 m · 4.7 ★",
+      "search.shokoName": "Shokoladnitsa",
+      "search.shokoMeta": "Cafe · 610 m · 4.2 ★",
+      "search.cofixMeta": "Coffee shop · 700 m · 4.5 ★",
+      "search.doublebMeta": "Coffee shop · 820 m · 4.8 ★",
+      "place.backAria": "Back",
+      "place.shareAria": "Share",
+      "place.saveAria": "Save",
+      "place.category": "Cafe",
+      "place.openUntil": "Open until 23:00",
+      "place.route": "Route",
+      "place.call": "Call",
+      "place.save": "Save",
+      "place.share": "Share",
+      "place.address": "8 Tverskaya St, Moscow",
+      "place.distance": "320 m",
+      "place.hours": "Daily, 8:00 – 23:00",
+      "place.review": "“Best flat white in the centre, with power sockets and a quiet room on the second floor.”",
+      "place.reviewAuthor": "Anna, 2 days ago",
+      "place.cta": "Build route",
+      "settings.backAria": "Back",
+      "settings.searchAria": "Search settings",
+      "settings.title": "Settings",
+      "settings.appearance": "Appearance",
+      "settings.light": "Light",
+      "settings.dark": "Dark",
+      "settings.system": "System",
+      "settings.largeFont": "Large font on map",
+      "settings.largeFontSub": "Street and POI names",
+      "settings.maps": "Maps",
+      "settings.downloaded": "Downloaded regions",
+      "settings.downloadedSub": "Moscow and region · 412 MB",
+      "settings.mapLayers": "Map layers",
+      "settings.mapLayersSub": "Terrain, traffic, bike lanes",
+      "settings.osm": "OpenStreetMap Profile",
+      "settings.osmSub": "For map editing only · Not connected",
+      "settings.autoUpdate": "Map auto-update",
+      "settings.autoUpdateSub": "Wi-Fi only",
+      "settings.navigation": "Navigation",
+      "settings.tolls": "Avoid toll roads",
+      "settings.voice": "Voice guidance",
+      "settings.voiceSub": "English",
+      "settings.privacy": "Privacy",
+      "settings.noTrackers": "No trackers",
+      "settings.noTrackersSub": "Analytics disabled entirely",
+      "settings.noTrackersBadge": "On",
+      "settings.history": "Search history",
+      "settings.historySub": "Stored on device only",
+      "settings.about": "About",
+      "settings.version": "Version",
+      "settings.versionValue": "2026.11 · MD3",
+      "settings.support": "Support the project",
+      "map.tverskaya": "Tverskaya St",
+      "map.stoleshnikov": "Stoleshnikov Ln",
+      "map.patriarch": "Patriarch Ponds",
+      "map.moskva": "Moskva River",
+      "map.bersenevskaya": "Bersenevskaya Emb",
+      "sheet.toggleAria": "Collapse or expand panel",
+    },
+    ru: {
+      "meta.title": "Organic Maps — концепт Material Design 3",
+      "meta.desc": "Концепт редизайна Organic Maps по Material Design 3: пять экранов, светлая и тёмная темы, интерактивный прототип.",
+      "tabs.map": "Карта",
+      "tabs.nav": "Навигация",
+      "tabs.search": "Поиск",
+      "tabs.place": "Место",
+      "tabs.settings": "Настройки",
+      "topbar.lang": "Язык",
+      "topbar.themeTitle": "Светлая / тёмная тема",
+      "topbar.themeAria": "Переключить тему",
+      "topbar.allTitle": "Все экраны",
+      "topbar.allAria": "Показать все экраны",
+      "map.searchPlaceholder": "Поиск мест и адресов",
+      "map.layersTitle": "Слои карты",
+      "map.layersAria": "Слои карты",
+      "map.orientTitle": "Ориентация",
+      "map.orientAria": "Ориентация карты",
+      "map.locateTitle": "Моё местоположение",
+      "map.locateAria": "Моё местоположение",
+      "map.zoomIn": "Приблизить",
+      "map.zoomOut": "Отдалить",
+      "layers.terrain": "Рельеф",
+      "layers.bike": "Велодорожки",
+      "layers.subway": "Метро",
+      "cat.food": "Еда",
+      "cat.cafes": "Кафе",
+      "cat.fuel": "АЗС",
+      "cat.hotels": "Отели",
+      "nearby.title": "Рядом с вами",
+      "nearby.all": "Все",
+      "nearby.coffeeName": "Кофемания",
+      "nearby.coffeeMeta": 'Кафе · 320 м · <b class="open">Открыто</b>',
+      "nearby.canteenName": "Столовая №1",
+      "nearby.canteenMeta": 'Обед · 540 м · <b class="open">Открыто</b>',
+      "nearby.parkName": "Патриаршие пруды",
+      "nearby.parkMeta": "Парк · 760 м · <b>Круглосуточно</b>",
+      "rating.4_6": "4,6",
+      "rating.4_4": "4,4",
+      "rating.4_8": "4,8",
+      "nav.label": "Основная навигация",
+      "navTab.map": "Карта",
+      "navTab.search": "Поиск",
+      "navTab.route": "Маршрут",
+      "navTab.saved": "Метки",
+      "navTab.more": "Ещё",
+      "nav.maneuverDistance": "Через 200 м",
+      "nav.maneuverInstruction": "поверните направо на Тверскую",
+      "nav.then": "затем",
+      "nav.soundAria": "Звук навигации",
+      "nav.speed": "47<span>км/ч</span>",
+      "nav.etaValue": "12 мин",
+      "nav.etaSub": "4,2 км · прибытие в 9:53",
+      "nav.endAria": "Завершить маршрут",
+      "nav.modeCar": "Авто",
+      "nav.modeBike": "Вело",
+      "nav.modeWalk": "Пешком",
+      "nav.modeTransit": "Транспорт",
+      "nav.alt1km": "4,2 км",
+      "nav.alt1min": "12 мин",
+      "nav.alt1tag": "без пробок",
+      "nav.alt2km": "5,6 км",
+      "nav.alt2min": "17 мин",
+      "nav.alt2tag": "через центр",
+      "nav.alt3km": "3,9 км",
+      "nav.alt3min": "19 мин",
+      "nav.alt3tag": "пробки",
+      "nav.offline": "Офлайн-карта",
+      "nav.share": "Поделиться",
+      "search.backAria": "Назад",
+      "search.queryAria": "Поисковый запрос",
+      "search.clearAria": "Очистить",
+      "search.value": "кофе",
+      "search.chipOpen": "Открыто",
+      "search.chipNearby": "Рядом",
+      "search.chipRating": "4,5+",
+      "search.chipSpecialty": "Спешелти",
+      "search.best": "Лучший результат",
+      "search.more14": "Ещё 14 мест",
+      "search.bestMeta": "Кафе · Тверская ул., 8",
+      "search.bestTags": '<b class="open">Открыто до 23:00</b> · 320 м · 4,6 ★',
+      "search.surfMeta": "Кофейня · 480 м · 4,7 ★",
+      "search.shokoName": "Шоколадница",
+      "search.shokoMeta": "Кафе · 610 м · 4,2 ★",
+      "search.cofixMeta": "Кофейня · 700 м · 4,5 ★",
+      "search.doublebMeta": "Кофейня · 820 м · 4,8 ★",
+      "place.backAria": "Назад",
+      "place.shareAria": "Поделиться",
+      "place.saveAria": "Сохранить",
+      "place.category": "Кафе",
+      "place.openUntil": "Открыто до 23:00",
+      "place.route": "Маршрут",
+      "place.call": "Позвонить",
+      "place.save": "Сохранить",
+      "place.share": "Поделиться",
+      "place.address": "Тверская ул., 8, Москва",
+      "place.distance": "320 м",
+      "place.hours": "Ежедневно, 8:00 – 23:00",
+      "place.review": "«Лучший флэт уайт в центре, есть розетки и тихий зал на втором этаже.»",
+      "place.reviewAuthor": "Анна, 2 дня назад",
+      "place.cta": "Построить маршрут",
+      "settings.backAria": "Назад",
+      "settings.searchAria": "Поиск в настройках",
+      "settings.title": "Настройки",
+      "settings.appearance": "Внешний вид",
+      "settings.light": "Светлая",
+      "settings.dark": "Тёмная",
+      "settings.system": "Системная",
+      "settings.largeFont": "Крупный шрифт на карте",
+      "settings.largeFontSub": "Названия улиц и POI",
+      "settings.maps": "Карты",
+      "settings.downloaded": "Скачанные регионы",
+      "settings.downloadedSub": "Москва и область · 412 МБ",
+      "settings.mapLayers": "Слои карты",
+      "settings.mapLayersSub": "Рельеф, пробки, велодорожки",
+      "settings.osm": "Профиль OpenStreetMap",
+      "settings.osmSub": "Только для редактирования карты · Не подключён",
+      "settings.autoUpdate": "Автообновление карт",
+      "settings.autoUpdateSub": "Только по Wi-Fi",
+      "settings.navigation": "Навигация",
+      "settings.tolls": "Избегать платных дорог",
+      "settings.voice": "Голосовые подсказки",
+      "settings.voiceSub": "Русский",
+      "settings.privacy": "Приватность",
+      "settings.noTrackers": "Без трекеров",
+      "settings.noTrackersSub": "Аналитика выключена полностью",
+      "settings.noTrackersBadge": "Вкл",
+      "settings.history": "История поиска",
+      "settings.historySub": "Хранится только на устройстве",
+      "settings.about": "О приложении",
+      "settings.version": "Версия",
+      "settings.versionValue": "2026.11 · MD3",
+      "settings.support": "Помочь проекту",
+      "map.tverskaya": "Тверская ул.",
+      "map.stoleshnikov": "Столешников пер.",
+      "map.patriarch": "Патриаршие пруды",
+      "map.moskva": "Москва-река",
+      "map.bersenevskaya": "Берсеневская наб.",
+      "sheet.toggleAria": "Свернуть или развернуть панель",
+    },
+  };
+
+  let currentLang = "en";
+
+  function translate(key) {
+    const table = translations[currentLang] || translations.en;
+    return table[key] != null ? table[key] : translations.en[key] || key;
+  }
+
+  function localize(scope = document) {
+    scope.querySelectorAll("[data-i18n]").forEach((el) => {
+      el.textContent = translate(el.dataset.i18n);
+    });
+    scope.querySelectorAll("[data-i18n-html]").forEach((el) => {
+      el.innerHTML = translate(el.dataset.i18nHtml);
+    });
+    scope.querySelectorAll("[data-i18n-aria-label]").forEach((el) => {
+      el.setAttribute("aria-label", translate(el.dataset.i18nAriaLabel));
+    });
+    scope.querySelectorAll("[data-i18n-title]").forEach((el) => {
+      el.setAttribute("title", translate(el.dataset.i18nTitle));
+    });
+    scope.querySelectorAll("[data-i18n-value]").forEach((el) => {
+      el.value = translate(el.dataset.i18nValue);
+    });
+    scope.querySelectorAll("[data-i18n-content]").forEach((el) => {
+      el.setAttribute("content", translate(el.dataset.i18nContent));
+    });
+  }
+
+  function applyLanguage(lang) {
+    currentLang = lang === "ru" ? "ru" : "en";
+    root.lang = currentLang;
+
+    localize(document);
+    localize(mapTemplate.content);
+
+    document.querySelectorAll(".lang-switch [data-lang]").forEach((btn) => {
+      const on = btn.dataset.lang === currentLang;
+      btn.classList.toggle("is-active", on);
+      btn.setAttribute("aria-pressed", String(on));
+    });
+
+    if (frames) {
+      frames.querySelectorAll(".frame__label").forEach((label) => {
+        const screen = screens.find((s) => s.dataset.screen === label.dataset.screenLabel);
+        if (screen) label.textContent = screen.getAttribute("aria-label") || screen.dataset.screen;
+      });
+    }
+  }
+
   function prepareRoute(scope) {
     scope.querySelectorAll(".route__line").forEach((line) => {
       if (!line.getTotalLength) return;
@@ -31,9 +364,14 @@
       slot.appendChild(mapTemplate.content.cloneNode(true));
       slot.dataset.painted = "1";
       prepareRoute(slot);
+      localize(slot);
     });
   }
   paintMaps();
+
+  document.querySelectorAll(".lang-switch [data-lang]").forEach((btn) => {
+    btn.addEventListener("click", () => applyLanguage(btn.dataset.lang));
+  });
 
   function drawRoute(screen) {
     const line = screen && screen.querySelector('.map-canvas[data-route="on"] .route__line');
@@ -223,7 +561,6 @@
       if (handle) {
         handle.setAttribute("role", "button");
         handle.setAttribute("tabindex", "0");
-        handle.setAttribute("aria-label", "Свернуть или развернуть панель");
         handle.setAttribute("aria-expanded", "true");
         handle.addEventListener("keydown", (e) => {
           if (e.key === "Enter" || e.key === " ") {
@@ -299,6 +636,7 @@
 
         const label = document.createElement("span");
         label.className = "frame__label";
+        label.dataset.screenLabel = screen.dataset.screen;
         label.textContent = screen.getAttribute("aria-label") || screen.dataset.screen;
 
         frame.append(holder, label);
@@ -325,6 +663,8 @@
 
   /* ── Deep link ─────────────────────────────────────────────── */
   const params = new URLSearchParams(location.search);
+  applyLanguage(params.get("lang") === "ru" ? "ru" : "en");
+
   const initial = location.hash.replace("#", "");
   if (screens.some((s) => s.dataset.screen === initial)) {
     show(initial);

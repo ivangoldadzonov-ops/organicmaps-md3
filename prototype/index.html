@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ru" data-theme="light">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Organic Maps — Material Design 3 concept</title>
-<meta name="description" content="Концепт редизайна Organic Maps по Material Design 3: пять экранов, светлая и тёмная темы, интерактивный прототип.">
+<title data-i18n="meta.title">Organic Maps — Material Design 3 concept</title>
+<meta name="description" data-i18n-content="meta.desc" content="Organic Maps redesign concept built with Material Design 3: five screens, light and dark themes, interactive prototype.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -73,19 +73,23 @@
       </div>
     </div>
 
-    <nav class="screens" aria-label="Экраны прототипа">
-      <button class="screen-tab is-active" data-screen="map">Карта</button>
-      <button class="screen-tab" data-screen="nav">Навигация</button>
-      <button class="screen-tab" data-screen="search">Поиск</button>
-      <button class="screen-tab" data-screen="place">Место</button>
-      <button class="screen-tab" data-screen="settings">Настройки</button>
+    <nav class="screens" aria-label="Prototype screens">
+      <button class="screen-tab is-active" data-screen="map" data-i18n="tabs.map">Map</button>
+      <button class="screen-tab" data-screen="nav" data-i18n="tabs.nav">Navigation</button>
+      <button class="screen-tab" data-screen="search" data-i18n="tabs.search">Search</button>
+      <button class="screen-tab" data-screen="place" data-i18n="tabs.place">Place</button>
+      <button class="screen-tab" data-screen="settings" data-i18n="tabs.settings">Settings</button>
     </nav>
 
     <div class="topbar__actions">
-      <button class="icon-btn" id="toggle-theme" title="Светлая / тёмная тема" aria-label="Переключить тему">
+      <div class="lang-switch" role="group" aria-label="Language" data-i18n-aria-label="topbar.lang">
+        <button type="button" data-lang="en" class="is-active" aria-pressed="true">EN</button>
+        <button type="button" data-lang="ru" aria-pressed="false">RU</button>
+      </div>
+      <button class="icon-btn" id="toggle-theme" title="Light / dark theme" data-i18n-title="topbar.themeTitle" aria-label="Switch theme" data-i18n-aria-label="topbar.themeAria">
         <svg class="icon"><use href="#i-moon"/></svg>
       </button>
-      <button class="icon-btn" id="toggle-all" title="Все экраны" aria-label="Показать все экраны" aria-pressed="false">
+      <button class="icon-btn" id="toggle-all" title="All screens" data-i18n-title="topbar.allTitle" aria-label="Show all screens" data-i18n-aria-label="topbar.allAria" aria-pressed="false">
         <svg class="icon"><use href="#i-grid"/></svg>
       </button>
     </div>
@@ -97,7 +101,7 @@
     <div class="device" id="device">
 
       <!-- ═══ 1. Map ═══════════════════════════════════════════ -->
-      <section class="screen is-active" data-screen="map" aria-label="Карта">
+      <section class="screen is-active" data-screen="map" aria-label="Map" data-i18n-aria-label="tabs.map">
         <div class="map-canvas" data-route="off"></div>
 
         <div class="statusbar statusbar--dark">
@@ -113,91 +117,91 @@
           <div class="search-row">
             <button class="search-bar" type="button" data-go="search">
               <svg class="icon"><use href="#i-menu"/></svg>
-              <span class="search-bar__label">Поиск мест и адресов</span>
+              <span class="search-bar__label" data-i18n="map.searchPlaceholder">Search places and addresses</span>
             </button>
-            <button class="icon-btn icon-btn--dense layers-btn" id="toggle-layers" type="button" title="Слои карты" aria-label="Слои карты" aria-expanded="false" aria-controls="layer-chips">
+            <button class="icon-btn icon-btn--dense layers-btn" id="toggle-layers" type="button" title="Map layers" data-i18n-title="map.layersTitle" aria-label="Map layers" data-i18n-aria-label="map.layersAria" aria-expanded="false" aria-controls="layer-chips">
               <svg class="icon"><use href="#i-layers"/></svg>
             </button>
           </div>
 
           <div class="chips chips--layers" id="layer-chips" aria-hidden="true">
-            <button class="chip"><svg class="icon icon--18"><use href="#i-terrain"/></svg>Рельеф</button>
-            <button class="chip"><svg class="icon icon--18"><use href="#i-bike"/></svg>Велодорожки</button>
-            <button class="chip"><svg class="icon icon--18"><use href="#i-transit"/></svg>Метро</button>
+            <button class="chip"><svg class="icon icon--18"><use href="#i-terrain"/></svg><span data-i18n="layers.terrain">Terrain</span></button>
+            <button class="chip"><svg class="icon icon--18"><use href="#i-bike"/></svg><span data-i18n="layers.bike">Bike lanes</span></button>
+            <button class="chip"><svg class="icon icon--18"><use href="#i-transit"/></svg><span data-i18n="layers.subway">Subway</span></button>
           </div>
 
           <div class="chips chips--floating">
-            <button class="chip is-selected"><svg class="icon icon--18"><use href="#i-restaurant"/></svg>Еда</button>
-            <button class="chip"><svg class="icon icon--18"><use href="#i-coffee"/></svg>Кафе</button>
-            <button class="chip"><svg class="icon icon--18"><use href="#i-fuel"/></svg>АЗС</button>
-            <button class="chip"><svg class="icon icon--18"><use href="#i-hotel"/></svg>Отели</button>
+            <button class="chip is-selected"><svg class="icon icon--18"><use href="#i-restaurant"/></svg><span data-i18n="cat.food">Food</span></button>
+            <button class="chip"><svg class="icon icon--18"><use href="#i-coffee"/></svg><span data-i18n="cat.cafes">Cafes</span></button>
+            <button class="chip"><svg class="icon icon--18"><use href="#i-fuel"/></svg><span data-i18n="cat.fuel">Fuel</span></button>
+            <button class="chip"><svg class="icon icon--18"><use href="#i-hotel"/></svg><span data-i18n="cat.hotels">Hotels</span></button>
           </div>
         </div>
 
         <div class="map-controls">
-          <button class="fab fab--small fab--tonal" title="Слои карты" aria-label="Слои карты">
+          <button class="fab fab--small fab--tonal" title="Map layers" data-i18n-title="map.layersTitle" aria-label="Map layers" data-i18n-aria-label="map.layersAria">
             <svg class="icon"><use href="#i-layers"/></svg>
           </button>
-          <button class="fab fab--small fab--tonal" title="Ориентация" aria-label="Ориентация карты">
+          <button class="fab fab--small fab--tonal" title="Map orientation" data-i18n-title="map.orientTitle" aria-label="Map orientation" data-i18n-aria-label="map.orientAria">
             <svg class="icon"><use href="#i-compass"/></svg>
           </button>
-          <button class="fab fab--primary" title="Моё местоположение" aria-label="Моё местоположение">
+          <button class="fab fab--primary" title="My location" data-i18n-title="map.locateTitle" aria-label="My location" data-i18n-aria-label="map.locateAria">
             <svg class="icon"><use href="#i-locate"/></svg>
           </button>
         </div>
 
         <div class="zoom-cluster">
-          <button class="zoom" aria-label="Приблизить"><svg class="icon"><use href="#i-plus"/></svg></button>
+          <button class="zoom" aria-label="Zoom in" data-i18n-aria-label="map.zoomIn"><svg class="icon"><use href="#i-plus"/></svg></button>
           <span class="zoom__divider"></span>
-          <button class="zoom" aria-label="Отдалить"><svg class="icon"><use href="#i-minus"/></svg></button>
+          <button class="zoom" aria-label="Zoom out" data-i18n-aria-label="map.zoomOut"><svg class="icon"><use href="#i-minus"/></svg></button>
         </div>
 
         <div class="sheet sheet--peek" id="nearby-sheet" data-collapsible>
-          <div class="sheet__handle"></div>
+          <div class="sheet__handle" data-i18n-aria-label="sheet.toggleAria"></div>
           <div class="sheet__head">
-            <h2 class="title-large">Рядом с вами</h2>
-            <button class="text-btn">Все</button>
+            <h2 class="title-large" data-i18n="nearby.title">Nearby</h2>
+            <button class="text-btn" data-i18n="nearby.all">See all</button>
           </div>
 
           <ul class="place-list">
             <li class="place-row">
               <span class="poi poi--cafe"><svg class="icon"><use href="#i-coffee"/></svg></span>
               <span class="place-row__text">
-                <span class="place-row__name">Кофемания</span>
-                <span class="place-row__meta">Кафе · 320 м · <b class="open">Открыто</b></span>
+                <span class="place-row__name" data-i18n="nearby.coffeeName">Coffeemania</span>
+                <span class="place-row__meta" data-i18n-html="nearby.coffeeMeta">Cafe · 320 m · <b class="open">Open</b></span>
               </span>
-              <span class="rating"><svg class="icon icon--16"><use href="#i-star"/></svg>4,6</span>
+              <span class="rating"><svg class="icon icon--16"><use href="#i-star"/></svg><span data-i18n="rating.4_6">4.6</span></span>
             </li>
             <li class="place-row">
               <span class="poi poi--food"><svg class="icon"><use href="#i-restaurant"/></svg></span>
               <span class="place-row__text">
-                <span class="place-row__name">Столовая №1</span>
-                <span class="place-row__meta">Обед · 540 м · <b class="open">Открыто</b></span>
+                <span class="place-row__name" data-i18n="nearby.canteenName">Canteen No. 1</span>
+                <span class="place-row__meta" data-i18n-html="nearby.canteenMeta">Lunch · 540 m · <b class="open">Open</b></span>
               </span>
-              <span class="rating"><svg class="icon icon--16"><use href="#i-star"/></svg>4,4</span>
+              <span class="rating"><svg class="icon icon--16"><use href="#i-star"/></svg><span data-i18n="rating.4_4">4.4</span></span>
             </li>
             <li class="place-row">
               <span class="poi poi--park"><svg class="icon"><use href="#i-park"/></svg></span>
               <span class="place-row__text">
-                <span class="place-row__name">Патриаршие пруды</span>
-                <span class="place-row__meta">Парк · 760 м · <b>Круглосуточно</b></span>
+                <span class="place-row__name" data-i18n="nearby.parkName">Patriarch Ponds</span>
+                <span class="place-row__meta" data-i18n-html="nearby.parkMeta">Park · 760 m · <b>Open 24/7</b></span>
               </span>
-              <span class="rating"><svg class="icon icon--16"><use href="#i-star"/></svg>4,8</span>
+              <span class="rating"><svg class="icon icon--16"><use href="#i-star"/></svg><span data-i18n="rating.4_8">4.8</span></span>
             </li>
           </ul>
 
-          <nav class="nav-bar" aria-label="Основная навигация">
-            <button class="nav-item is-active" data-go="map"><svg class="icon"><use href="#i-map"/></svg><span>Карта</span></button>
-            <button class="nav-item" data-go="search"><svg class="icon"><use href="#i-search"/></svg><span>Поиск</span></button>
-            <button class="nav-item" data-go="nav"><svg class="icon"><use href="#i-route"/></svg><span>Маршрут</span></button>
-            <button class="nav-item"><svg class="icon"><use href="#i-bookmark"/></svg><span>Метки</span></button>
-            <button class="nav-item" data-go="settings"><svg class="icon"><use href="#i-settings"/></svg><span>Ещё</span></button>
+          <nav class="nav-bar" aria-label="Main navigation" data-i18n-aria-label="nav.label">
+            <button class="nav-item is-active" data-go="map"><svg class="icon"><use href="#i-map"/></svg><span data-i18n="navTab.map">Map</span></button>
+            <button class="nav-item" data-go="search"><svg class="icon"><use href="#i-search"/></svg><span data-i18n="navTab.search">Search</span></button>
+            <button class="nav-item" data-go="nav"><svg class="icon"><use href="#i-route"/></svg><span data-i18n="navTab.route">Route</span></button>
+            <button class="nav-item"><svg class="icon"><use href="#i-bookmark"/></svg><span data-i18n="navTab.saved">Saved</span></button>
+            <button class="nav-item" data-go="settings"><svg class="icon"><use href="#i-settings"/></svg><span data-i18n="navTab.more">More</span></button>
           </nav>
         </div>
       </section>
 
       <!-- ═══ 2. Navigation ════════════════════════════════════ -->
-      <section class="screen" data-screen="nav" aria-label="Навигация">
+      <section class="screen" data-screen="nav" aria-label="Navigation" data-i18n-aria-label="tabs.nav">
         <div class="map-canvas is-navigating" data-route="on"></div>
 
         <div class="statusbar statusbar--dark">
@@ -212,64 +216,64 @@
         <div class="maneuver">
           <span class="maneuver__icon"><svg class="icon icon--32"><use href="#i-arrow-turn-right"/></svg></span>
           <div class="maneuver__text">
-            <span class="maneuver__distance">Через 200 м</span>
-            <span class="maneuver__instruction">поверните направо на Тверскую</span>
+            <span class="maneuver__distance" data-i18n="nav.maneuverDistance">In 200 m</span>
+            <span class="maneuver__instruction" data-i18n="nav.maneuverInstruction">turn right onto Tverskaya St</span>
           </div>
           <span class="maneuver__next">
-            <span>затем</span>
+            <span data-i18n="nav.then">then</span>
             <svg class="icon icon--20"><use href="#i-arrow-turn-left"/></svg>
           </span>
         </div>
 
         <div class="nav-badges">
           <span class="badge badge--surface"><svg class="icon icon--18"><use href="#i-clock"/></svg>9:52</span>
-          <span class="badge badge--speed">47<span>км/ч</span></span>
-          <button class="fab fab--small fab--tonal" aria-label="Звук навигации"><svg class="icon"><use href="#i-compass"/></svg></button>
+          <span class="badge badge--speed" data-i18n-html="nav.speed">47<span>km/h</span></span>
+          <button class="fab fab--small fab--tonal" aria-label="Navigation sound" data-i18n-aria-label="nav.soundAria"><svg class="icon"><use href="#i-compass"/></svg></button>
         </div>
 
         <div class="sheet sheet--expanded" id="route-sheet" data-collapsible>
-          <div class="sheet__handle"></div>
+          <div class="sheet__handle" data-i18n-aria-label="sheet.toggleAria"></div>
 
           <div class="eta">
             <div>
-              <p class="eta__value">12 мин</p>
-              <p class="eta__sub">4,2 км · прибытие в 9:53</p>
+              <p class="eta__value" data-i18n="nav.etaValue">12 min</p>
+              <p class="eta__sub" data-i18n="nav.etaSub">4.2 km · arrive at 9:53</p>
             </div>
-            <button class="icon-btn icon-btn--filled" aria-label="Завершить маршрут"><svg class="icon"><use href="#i-close"/></svg></button>
+            <button class="icon-btn icon-btn--filled" aria-label="End route" data-i18n-aria-label="nav.endAria"><svg class="icon"><use href="#i-close"/></svg></button>
           </div>
 
           <div class="segmented" role="tablist">
-            <button role="tab" class="is-active"><svg class="icon icon--18"><use href="#i-car"/></svg>Авто</button>
-            <button role="tab"><svg class="icon icon--18"><use href="#i-bike"/></svg>Вело</button>
-            <button role="tab"><svg class="icon icon--18"><use href="#i-walk"/></svg>Пешком</button>
-            <button role="tab"><svg class="icon icon--18"><use href="#i-transit"/></svg>Транспорт</button>
+            <button role="tab" class="is-active"><svg class="icon icon--18"><use href="#i-car"/></svg><span data-i18n="nav.modeCar">Car</span></button>
+            <button role="tab"><svg class="icon icon--18"><use href="#i-bike"/></svg><span data-i18n="nav.modeBike">Bike</span></button>
+            <button role="tab"><svg class="icon icon--18"><use href="#i-walk"/></svg><span data-i18n="nav.modeWalk">Walk</span></button>
+            <button role="tab"><svg class="icon icon--18"><use href="#i-transit"/></svg><span data-i18n="nav.modeTransit">Transit</span></button>
           </div>
 
           <ul class="alt-list">
             <li class="alt-row is-selected">
-              <span class="alt-row__main"><b>4,2 км</b><span>12 мин</span></span>
-              <span class="alt-row__tag">без пробок</span>
+              <span class="alt-row__main"><b data-i18n="nav.alt1km">4.2 km</b><span data-i18n="nav.alt1min">12 min</span></span>
+              <span class="alt-row__tag" data-i18n="nav.alt1tag">no traffic</span>
               <span class="alt-row__note">+0 ₽</span>
             </li>
             <li class="alt-row">
-              <span class="alt-row__main"><b>5,6 км</b><span>17 мин</span></span>
-              <span class="alt-row__tag">через центр</span>
+              <span class="alt-row__main"><b data-i18n="nav.alt2km">5.6 km</b><span data-i18n="nav.alt2min">17 min</span></span>
+              <span class="alt-row__tag" data-i18n="nav.alt2tag">via center</span>
             </li>
             <li class="alt-row">
-              <span class="alt-row__main"><b>3,9 км</b><span>19 мин</span></span>
-              <span class="alt-row__tag">пробки</span>
+              <span class="alt-row__main"><b data-i18n="nav.alt3km">3.9 km</b><span data-i18n="nav.alt3min">19 min</span></span>
+              <span class="alt-row__tag" data-i18n="nav.alt3tag">traffic</span>
             </li>
           </ul>
 
           <div class="row-actions">
-            <button class="btn btn--tonal"><svg class="icon icon--18"><use href="#i-download"/></svg>Офлайн-карта</button>
-            <button class="btn btn--text"><svg class="icon icon--18"><use href="#i-share"/></svg>Поделиться</button>
+            <button class="btn btn--tonal"><svg class="icon icon--18"><use href="#i-download"/></svg><span data-i18n="nav.offline">Offline map</span></button>
+            <button class="btn btn--text"><svg class="icon icon--18"><use href="#i-share"/></svg><span data-i18n="nav.share">Share</span></button>
           </div>
         </div>
       </section>
 
       <!-- ═══ 3. Search ════════════════════════════════════════ -->
-      <section class="screen" data-screen="search" aria-label="Поиск">
+      <section class="screen" data-screen="search" aria-label="Search" data-i18n-aria-label="tabs.search">
         <div class="statusbar">
           <span class="statusbar__time">9:41</span>
           <span class="statusbar__icons">
@@ -280,73 +284,73 @@
         </div>
 
         <div class="app-bar">
-          <button class="icon-btn" data-go="map" aria-label="Назад"><svg class="icon"><use href="#i-back"/></svg></button>
+          <button class="icon-btn" data-go="map" aria-label="Back" data-i18n-aria-label="search.backAria"><svg class="icon"><use href="#i-back"/></svg></button>
           <div class="search-field is-focused">
             <svg class="icon"><use href="#i-search"/></svg>
-            <input value="кофе" aria-label="Поисковый запрос" type="search">
-            <button class="icon-btn icon-btn--dense" aria-label="Очистить"><svg class="icon icon--20"><use href="#i-close"/></svg></button>
+            <input value="coffee" data-i18n-value="search.value" aria-label="Search query" data-i18n-aria-label="search.queryAria" type="search">
+            <button class="icon-btn icon-btn--dense" aria-label="Clear" data-i18n-aria-label="search.clearAria"><svg class="icon icon--20"><use href="#i-close"/></svg></button>
           </div>
         </div>
 
         <div class="chips chips--static">
-          <button class="chip is-selected"><svg class="icon icon--18"><use href="#i-clock"/></svg>Открыто</button>
-          <button class="chip"><svg class="icon icon--18"><use href="#i-pin"/></svg>Рядом</button>
-          <button class="chip"><svg class="icon icon--18"><use href="#i-star"/></svg>4,5+</button>
-          <button class="chip"><svg class="icon icon--18"><use href="#i-coffee"/></svg>Спешелти</button>
+          <button class="chip is-selected"><svg class="icon icon--18"><use href="#i-clock"/></svg><span data-i18n="search.chipOpen">Open now</span></button>
+          <button class="chip"><svg class="icon icon--18"><use href="#i-pin"/></svg><span data-i18n="search.chipNearby">Nearby</span></button>
+          <button class="chip"><svg class="icon icon--18"><use href="#i-star"/></svg><span data-i18n="search.chipRating">4.5+</span></button>
+          <button class="chip"><svg class="icon icon--18"><use href="#i-coffee"/></svg><span data-i18n="search.chipSpecialty">Specialty</span></button>
         </div>
 
         <div class="scroll-area">
-          <p class="section-label">Лучший результат</p>
+          <p class="section-label" data-i18n="search.best">Best result</p>
           <button class="result-card" data-go="place">
             <span class="result-card__media result-card__media--cafe">
               <svg class="icon icon--32"><use href="#i-coffee"/></svg>
             </span>
             <span class="result-card__body">
-              <span class="result-card__title">Кофемания</span>
-              <span class="result-card__meta">Кафе · Тверская ул., 8</span>
-              <span class="result-card__tags"><b class="open">Открыто до 23:00</b> · 320 м · 4,6 ★</span>
+              <span class="result-card__title" data-i18n="nearby.coffeeName">Coffeemania</span>
+              <span class="result-card__meta" data-i18n="search.bestMeta">Cafe · 8 Tverskaya St</span>
+              <span class="result-card__tags" data-i18n-html="search.bestTags"><b class="open">Open until 23:00</b> · 320 m · 4.6 ★</span>
             </span>
             <span class="result-card__action">
               <span class="icon-btn icon-btn--filled"><svg class="icon"><use href="#i-route"/></svg></span>
             </span>
           </button>
 
-          <p class="section-label">Ещё 14 мест</p>
+          <p class="section-label" data-i18n="search.more14">14 more places</p>
           <ul class="result-list">
             <li class="result-row">
               <span class="poi poi--cafe"><svg class="icon"><use href="#i-coffee"/></svg></span>
-              <span class="result-row__text"><b>Surf Coffee</b><span>Кофейня · 480 м · 4,7 ★</span></span>
+              <span class="result-row__text"><b>Surf Coffee</b><span data-i18n="search.surfMeta">Coffee shop · 480 m · 4.7 ★</span></span>
               <svg class="icon icon--20 chevron"><use href="#i-chevron"/></svg>
             </li>
             <li class="result-row">
               <span class="poi poi--cafe"><svg class="icon"><use href="#i-coffee"/></svg></span>
-              <span class="result-row__text"><b>Шоколадница</b><span>Кафе · 610 м · 4,2 ★</span></span>
+              <span class="result-row__text"><b data-i18n="search.shokoName">Shokoladnitsa</b><span data-i18n="search.shokoMeta">Cafe · 610 m · 4.2 ★</span></span>
               <svg class="icon icon--20 chevron"><use href="#i-chevron"/></svg>
             </li>
             <li class="result-row">
               <span class="poi poi--food"><svg class="icon"><use href="#i-restaurant"/></svg></span>
-              <span class="result-row__text"><b>Cofix</b><span>Кофейня · 700 м · 4,5 ★</span></span>
+              <span class="result-row__text"><b>Cofix</b><span data-i18n="search.cofixMeta">Coffee shop · 700 m · 4.5 ★</span></span>
               <svg class="icon icon--20 chevron"><use href="#i-chevron"/></svg>
             </li>
             <li class="result-row">
               <span class="poi poi--cafe"><svg class="icon"><use href="#i-coffee"/></svg></span>
-              <span class="result-row__text"><b>Double B</b><span>Кофейня · 820 м · 4,8 ★</span></span>
+              <span class="result-row__text"><b>Double B</b><span data-i18n="search.doublebMeta">Coffee shop · 820 m · 4.8 ★</span></span>
               <svg class="icon icon--20 chevron"><use href="#i-chevron"/></svg>
             </li>
           </ul>
         </div>
 
-        <nav class="nav-bar" aria-label="Основная навигация">
-          <button class="nav-item" data-go="map"><svg class="icon"><use href="#i-map"/></svg><span>Карта</span></button>
-          <button class="nav-item is-active" data-go="search"><svg class="icon"><use href="#i-search"/></svg><span>Поиск</span></button>
-          <button class="nav-item" data-go="nav"><svg class="icon"><use href="#i-route"/></svg><span>Маршрут</span></button>
-          <button class="nav-item"><svg class="icon"><use href="#i-bookmark"/></svg><span>Метки</span></button>
-          <button class="nav-item" data-go="settings"><svg class="icon"><use href="#i-settings"/></svg><span>Ещё</span></button>
+        <nav class="nav-bar" aria-label="Main navigation" data-i18n-aria-label="nav.label">
+          <button class="nav-item" data-go="map"><svg class="icon"><use href="#i-map"/></svg><span data-i18n="navTab.map">Map</span></button>
+          <button class="nav-item is-active" data-go="search"><svg class="icon"><use href="#i-search"/></svg><span data-i18n="navTab.search">Search</span></button>
+          <button class="nav-item" data-go="nav"><svg class="icon"><use href="#i-route"/></svg><span data-i18n="navTab.route">Route</span></button>
+          <button class="nav-item"><svg class="icon"><use href="#i-bookmark"/></svg><span data-i18n="navTab.saved">Saved</span></button>
+          <button class="nav-item" data-go="settings"><svg class="icon"><use href="#i-settings"/></svg><span data-i18n="navTab.more">More</span></button>
         </nav>
       </section>
 
       <!-- ═══ 4. Place ═════════════════════════════════════════ -->
-      <section class="screen" data-screen="place" aria-label="Карточка места">
+      <section class="screen" data-screen="place" aria-label="Place" data-i18n-aria-label="tabs.place">
         <div class="hero">
           <div class="hero__map"><div class="map-canvas" data-route="off"></div></div>
         </div>
@@ -361,67 +365,67 @@
         </div>
 
         <div class="hero-actions">
-          <button class="icon-btn icon-btn--surface" data-go="search" aria-label="Назад"><svg class="icon"><use href="#i-back"/></svg></button>
+          <button class="icon-btn icon-btn--surface" data-go="search" aria-label="Back" data-i18n-aria-label="place.backAria"><svg class="icon"><use href="#i-back"/></svg></button>
           <div class="hero-actions__right">
-            <button class="icon-btn icon-btn--surface" aria-label="Поделиться"><svg class="icon"><use href="#i-share"/></svg></button>
-            <button class="icon-btn icon-btn--surface" aria-label="Сохранить"><svg class="icon"><use href="#i-bookmark"/></svg></button>
+            <button class="icon-btn icon-btn--surface" aria-label="Share" data-i18n-aria-label="place.shareAria"><svg class="icon"><use href="#i-share"/></svg></button>
+            <button class="icon-btn icon-btn--surface" aria-label="Save" data-i18n-aria-label="place.saveAria"><svg class="icon"><use href="#i-bookmark"/></svg></button>
           </div>
         </div>
 
         <div class="sheet sheet--cover">
-          <div class="sheet__handle"></div>
+          <div class="sheet__handle" data-i18n-aria-label="sheet.toggleAria"></div>
 
           <div class="place-head">
-            <h2 class="headline-small">Кофемания</h2>
+            <h2 class="headline-small" data-i18n="nearby.coffeeName">Coffeemania</h2>
             <p class="place-head__meta">
-              <span>Кафе</span><span class="dot">·</span>
-              <span class="rating"><svg class="icon icon--16"><use href="#i-star"/></svg>4,6 <span class="muted">(320)</span></span>
+              <span data-i18n="place.category">Cafe</span><span class="dot">·</span>
+              <span class="rating"><svg class="icon icon--16"><use href="#i-star"/></svg><span data-i18n="rating.4_6">4.6</span> <span class="muted">(320)</span></span>
               <span class="dot">·</span>
-              <b class="open">Открыто до 23:00</b>
+              <b class="open" data-i18n="place.openUntil">Open until 23:00</b>
             </p>
           </div>
 
           <div class="quick-actions">
             <button class="quick" data-go="nav">
               <span class="quick__icon quick__icon--filled"><svg class="icon"><use href="#i-route"/></svg></span>
-              <span>Маршрут</span>
+              <span data-i18n="place.route">Route</span>
             </button>
             <button class="quick">
               <span class="quick__icon"><svg class="icon"><use href="#i-phone"/></svg></span>
-              <span>Позвонить</span>
+              <span data-i18n="place.call">Call</span>
             </button>
             <button class="quick">
               <span class="quick__icon"><svg class="icon"><use href="#i-bookmark"/></svg></span>
-              <span>Сохранить</span>
+              <span data-i18n="place.save">Save</span>
             </button>
             <button class="quick">
               <span class="quick__icon"><svg class="icon"><use href="#i-share"/></svg></span>
-              <span>Поделиться</span>
+              <span data-i18n="place.share">Share</span>
             </button>
           </div>
 
           <div class="info-card">
-            <div class="info-row"><svg class="icon"><use href="#i-pin"/></svg><span>Тверская ул., 8, Москва</span><span class="info-row__trail">320 м</span></div>
-            <div class="info-row"><svg class="icon"><use href="#i-clock"/></svg><span>Ежедневно, 8:00 – 23:00</span></div>
+            <div class="info-row"><svg class="icon"><use href="#i-pin"/></svg><span data-i18n="place.address">8 Tverskaya St, Moscow</span><span class="info-row__trail" data-i18n="place.distance">320 m</span></div>
+            <div class="info-row"><svg class="icon"><use href="#i-clock"/></svg><span data-i18n="place.hours">Daily, 8:00 – 23:00</span></div>
             <div class="info-row"><svg class="icon"><use href="#i-globe"/></svg><span>coffeemania.ru</span></div>
             <div class="info-row"><svg class="icon"><use href="#i-phone"/></svg><span>+7 495 123-45-67</span></div>
           </div>
 
           <p class="review">
-            «Лучший флэт уайт в центре, есть розетки и тихий зал на втором этаже.»
-            <span class="review__author">Анна, 2 дня назад</span>
+            <span data-i18n="place.review">“Best flat white in the centre, with power sockets and a quiet room on the second floor.”</span>
+            <span class="review__author" data-i18n="place.reviewAuthor">Anna, 2 days ago</span>
           </p>
 
           <div class="sticky-cta">
             <button class="btn btn--filled btn--full" data-go="nav">
-              <svg class="icon icon--20"><use href="#i-route"/></svg>Построить маршрут
+              <svg class="icon icon--20"><use href="#i-route"/></svg><span data-i18n="place.cta">Build route</span>
             </button>
           </div>
         </div>
       </section>
 
       <!-- ═══ 5. Settings ══════════════════════════════════════ -->
-      <section class="screen" data-screen="settings" aria-label="Настройки">
+      <section class="screen" data-screen="settings" aria-label="Settings" data-i18n-aria-label="tabs.settings">
         <div class="statusbar">
           <span class="statusbar__time">9:41</span>
           <span class="statusbar__icons">
@@ -433,87 +437,87 @@
 
         <div class="app-bar app-bar--large">
           <div class="app-bar__row">
-            <button class="icon-btn" data-go="map" aria-label="Назад"><svg class="icon"><use href="#i-back"/></svg></button>
-            <button class="icon-btn" aria-label="Поиск в настройках"><svg class="icon"><use href="#i-search"/></svg></button>
+            <button class="icon-btn" data-go="map" aria-label="Back" data-i18n-aria-label="settings.backAria"><svg class="icon"><use href="#i-back"/></svg></button>
+            <button class="icon-btn" aria-label="Search settings" data-i18n-aria-label="settings.searchAria"><svg class="icon"><use href="#i-search"/></svg></button>
           </div>
-          <h2 class="headline-medium">Настройки</h2>
+          <h2 class="headline-medium" data-i18n="settings.title">Settings</h2>
         </div>
 
         <div class="scroll-area">
-          <p class="section-label">Внешний вид</p>
+          <p class="section-label" data-i18n="settings.appearance">Appearance</p>
           <div class="card">
             <div class="segmented segmented--three">
-              <button><svg class="icon icon--18"><use href="#i-sun"/></svg>Светлая</button>
-              <button class="is-active"><svg class="icon icon--18"><use href="#i-moon"/></svg>Тёмная</button>
-              <button>Системная</button>
+              <button><svg class="icon icon--18"><use href="#i-sun"/></svg><span data-i18n="settings.light">Light</span></button>
+              <button class="is-active"><svg class="icon icon--18"><use href="#i-moon"/></svg><span data-i18n="settings.dark">Dark</span></button>
+              <button><span data-i18n="settings.system">System</span></button>
             </div>
             <div class="setting">
-              <span class="setting__text"><b>Крупный шрифт на карте</b><span>Названия улиц и POI</span></span>
+              <span class="setting__text"><b data-i18n="settings.largeFont">Large font on map</b><span data-i18n="settings.largeFontSub">Street and POI names</span></span>
               <button class="switch is-on" role="switch" aria-checked="true"></button>
             </div>
           </div>
 
-          <p class="section-label">Карты</p>
+          <p class="section-label" data-i18n="settings.maps">Maps</p>
           <div class="card">
             <button class="setting setting--nav">
               <span class="poi poi--park"><svg class="icon"><use href="#i-download"/></svg></span>
-              <span class="setting__text"><b>Скачанные регионы</b><span>Москва и область · 412 МБ</span></span>
+              <span class="setting__text"><b data-i18n="settings.downloaded">Downloaded regions</b><span data-i18n="settings.downloadedSub">Moscow and region · 412 MB</span></span>
               <span class="progress-ring" style="--value:72"></span>
             </button>
             <button class="setting setting--nav">
               <span class="poi poi--water"><svg class="icon"><use href="#i-layers"/></svg></span>
-              <span class="setting__text"><b>Слои карты</b><span>Рельеф, пробки, велодорожки</span></span>
+              <span class="setting__text"><b data-i18n="settings.mapLayers">Map layers</b><span data-i18n="settings.mapLayersSub">Terrain, traffic, bike lanes</span></span>
               <svg class="icon icon--20 chevron"><use href="#i-chevron"/></svg>
             </button>
             <button class="setting setting--nav">
               <span class="poi poi--privacy"><svg class="icon"><use href="#i-globe"/></svg></span>
-              <span class="setting__text"><b>Профиль OpenStreetMap</b><span>Только для редактирования карты · Не подключён</span></span>
+              <span class="setting__text"><b data-i18n="settings.osm">OpenStreetMap Profile</b><span data-i18n="settings.osmSub">For map editing only · Not connected</span></span>
               <svg class="icon icon--20 chevron"><use href="#i-chevron"/></svg>
             </button>
             <div class="setting">
-              <span class="setting__text"><b>Автообновление карт</b><span>Только по Wi-Fi</span></span>
+              <span class="setting__text"><b data-i18n="settings.autoUpdate">Map auto-update</b><span data-i18n="settings.autoUpdateSub">Wi-Fi only</span></span>
               <button class="switch is-on" role="switch" aria-checked="true"></button>
             </div>
           </div>
 
-          <p class="section-label">Навигация</p>
+          <p class="section-label" data-i18n="settings.navigation">Navigation</p>
           <div class="card">
             <div class="setting">
-              <span class="setting__text"><b>Избегать платных дорог</b></span>
+              <span class="setting__text"><b data-i18n="settings.tolls">Avoid toll roads</b></span>
               <button class="switch" role="switch" aria-checked="false"></button>
             </div>
             <div class="setting">
-              <span class="setting__text"><b>Голосовые подсказки</b><span>Русский</span></span>
+              <span class="setting__text"><b data-i18n="settings.voice">Voice guidance</b><span data-i18n="settings.voiceSub">English</span></span>
               <button class="switch is-on" role="switch" aria-checked="true"></button>
             </div>
           </div>
 
-          <p class="section-label">Приватность</p>
+          <p class="section-label" data-i18n="settings.privacy">Privacy</p>
           <div class="card">
             <div class="setting">
               <span class="poi poi--privacy"><svg class="icon"><use href="#i-shield"/></svg></span>
-              <span class="setting__text"><b>Без трекеров</b><span>Аналитика выключена полностью</span></span>
-              <span class="badge badge--tonal">Вкл</span>
+              <span class="setting__text"><b data-i18n="settings.noTrackers">No trackers</b><span data-i18n="settings.noTrackersSub">Analytics disabled entirely</span></span>
+              <span class="badge badge--tonal" data-i18n="settings.noTrackersBadge">On</span>
             </div>
             <div class="setting">
-              <span class="setting__text"><b>История поиска</b><span>Хранится только на устройстве</span></span>
+              <span class="setting__text"><b data-i18n="settings.history">Search history</b><span data-i18n="settings.historySub">Stored on device only</span></span>
               <button class="switch is-on" role="switch" aria-checked="true"></button>
             </div>
           </div>
 
-          <p class="section-label">О приложении</p>
+          <p class="section-label" data-i18n="settings.about">About</p>
           <div class="card card--list">
-            <button class="setting setting--nav"><span class="setting__text"><b>Версия</b></span><span class="muted">2026.11 · MD3</span></button>
-            <button class="setting setting--nav"><span class="setting__text"><b>Помочь проекту</b></span><svg class="icon icon--20 chevron"><use href="#i-chevron"/></svg></button>
+            <button class="setting setting--nav"><span class="setting__text"><b data-i18n="settings.version">Version</b></span><span class="muted" data-i18n="settings.versionValue">2026.11 · MD3</span></button>
+            <button class="setting setting--nav"><span class="setting__text"><b data-i18n="settings.support">Support the project</b></span><svg class="icon icon--20 chevron"><use href="#i-chevron"/></svg></button>
           </div>
         </div>
 
-        <nav class="nav-bar" aria-label="Основная навигация">
-          <button class="nav-item" data-go="map"><svg class="icon"><use href="#i-map"/></svg><span>Карта</span></button>
-          <button class="nav-item" data-go="search"><svg class="icon"><use href="#i-search"/></svg><span>Поиск</span></button>
-          <button class="nav-item" data-go="nav"><svg class="icon"><use href="#i-route"/></svg><span>Маршрут</span></button>
-          <button class="nav-item" data-go="place"><svg class="icon"><use href="#i-bookmark"/></svg><span>Метки</span></button>
-          <button class="nav-item is-active" data-go="settings"><svg class="icon"><use href="#i-settings"/></svg><span>Ещё</span></button>
+        <nav class="nav-bar" aria-label="Main navigation" data-i18n-aria-label="nav.label">
+          <button class="nav-item" data-go="map"><svg class="icon"><use href="#i-map"/></svg><span data-i18n="navTab.map">Map</span></button>
+          <button class="nav-item" data-go="search"><svg class="icon"><use href="#i-search"/></svg><span data-i18n="navTab.search">Search</span></button>
+          <button class="nav-item" data-go="nav"><svg class="icon"><use href="#i-route"/></svg><span data-i18n="navTab.route">Route</span></button>
+          <button class="nav-item" data-go="place"><svg class="icon"><use href="#i-bookmark"/></svg><span data-i18n="navTab.saved">Saved</span></button>
+          <button class="nav-item is-active" data-go="settings"><svg class="icon"><use href="#i-settings"/></svg><span data-i18n="navTab.more">More</span></button>
         </nav>
       </section>
     </div>
@@ -569,11 +573,11 @@
 
     <!-- labels -->
     <g class="map-labels" fill="var(--map-label)" font-family="Roboto, sans-serif">
-      <text x="92" y="196" font-size="11" transform="rotate(-90 92 196)">Тверская ул.</text>
-      <text x="240" y="330" font-size="11">Столешников пер.</text>
-      <text x="268" y="246" font-size="12" fill="currentColor" opacity=".85">Патриаршие пруды</text>
-      <text x="120" y="566" font-size="11">Москва-река</text>
-      <text x="30" y="620" font-size="11">Берсеневская наб.</text>
+      <text x="92" y="196" font-size="11" transform="rotate(-90 92 196)" data-i18n="map.tverskaya">Tverskaya St</text>
+      <text x="240" y="330" font-size="11" data-i18n="map.stoleshnikov">Stoleshnikov Ln</text>
+      <text x="268" y="246" font-size="12" fill="currentColor" opacity=".85" data-i18n="map.patriarch">Patriarch Ponds</text>
+      <text x="120" y="566" font-size="11" data-i18n="map.moskva">Moskva River</text>
+      <text x="30" y="620" font-size="11" data-i18n="map.bersenevskaya">Bersenevskaya Emb</text>
     </g>
 
     <!-- POI dots -->

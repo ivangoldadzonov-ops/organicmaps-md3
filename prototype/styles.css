@@ -106,7 +106,33 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .screen-tab:hover { background: var(--md-surface-container-high); }
 .screen-tab.is-active { background: var(--md-primary); color: var(--md-on-primary); }
 
-.topbar__actions { display: flex; gap: 8px; }
+.topbar__actions { display: flex; gap: 8px; align-items: center; }
+
+.lang-switch {
+  display: inline-flex;
+  gap: 2px;
+  padding: 3px;
+  border-radius: var(--md-shape-full);
+  background: var(--md-surface-container-high);
+}
+.lang-switch button {
+  min-width: 38px;
+  height: 30px;
+  padding: 0 10px;
+  border-radius: var(--md-shape-full);
+  color: var(--md-on-surface-variant);
+  font-size: var(--md-label-medium-size);
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  transition:
+    background-color var(--md-sys-motion-duration-short) var(--md-sys-motion-easing-standard),
+    color var(--md-sys-motion-duration-short) var(--md-sys-motion-easing-standard);
+}
+.lang-switch button:hover { background: var(--md-surface-container-highest); }
+.lang-switch button.is-active {
+  background: var(--md-primary);
+  color: var(--md-on-primary);
+}
 
 .icon-btn {
   display: grid;
@@ -926,7 +952,8 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .setting,
 .switch,
 .alt-row,
-.search-bar {
+.search-bar,
+.lang-switch button {
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
   transition:
@@ -951,7 +978,8 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .setting:active,
 .switch:active,
 .alt-row:active,
-.search-bar:active {
+.search-bar:active,
+.lang-switch button:active {
   transform: scale(0.96);
   transition-duration: 120ms;
 }
