@@ -1,0 +1,23 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.idea/
+.vscode/
+*.iml
+
+# Node / build artefacts (for optional tooling)
+node_modules/
+dist/
+build/
+.cache/
+
+# Local preview server output
+*.log
+
+# Downloaded map data and generated tiles
+*.mwm
+*.mwd
+*.mwm.gz
+data/regions/
