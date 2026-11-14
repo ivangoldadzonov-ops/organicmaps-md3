@@ -252,15 +252,16 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
 /* ── Search bar & chips ────────────────────────────────────────── */
 
-.map-top {
+/* Bottom search dock: reachable with one thumb, directly above navigation. */
+.map-search-dock {
   position: absolute;
-  top: 52px;
   left: 16px;
   right: 16px;
-  z-index: 30;
+  bottom: calc(var(--md-nav-bar-height) + 8px);
+  z-index: 32;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
 }
 
 .search-row { position: relative; }
@@ -298,8 +299,8 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
 .chips { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; }
 .chips::-webkit-scrollbar { display: none; }
-.chips--floating { padding-bottom: 2px; }
 .chips--static { padding: 4px 16px 8px; }
+
 
 /* Quick layer chips revealed by the layers button in the search bar. */
 .chips--layers {
@@ -343,7 +344,6 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   white-space: nowrap;
   transition: background var(--md-duration-short4) var(--md-easing-standard);
 }
-.chips--floating .chip { background: var(--md-surface-container-high); border-color: transparent; box-shadow: var(--md-elevation-1); }
 .chip:hover { background: var(--md-surface-container-highest); }
 .chip.is-selected {
   background: var(--md-secondary-container);
@@ -373,8 +373,8 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .map-controls {
   position: absolute;
   right: 16px;
-  bottom: 372px;
-  z-index: 25;
+  bottom: calc(var(--md-nav-bar-height) + 80px);
+  z-index: 33;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -384,8 +384,8 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .zoom-cluster {
   position: absolute;
   left: 16px;
-  bottom: 372px;
-  z-index: 25;
+  bottom: calc(var(--md-nav-bar-height) + 80px);
+  z-index: 33;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -482,16 +482,6 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
 .open { color: var(--md-primary); font-weight: 500; }
 
-.rating {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  font-size: var(--md-label-large-size);
-  font-weight: 500;
-  color: var(--md-on-surface);
-}
-.rating .icon { color: var(--md-tertiary); fill: var(--md-tertiary-container); }
-
 /* ── Bottom navigation ─────────────────────────────────────────── */
 
 .nav-bar {
@@ -544,6 +534,12 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .nav-bar.has-pill .nav-item.is-active .icon { background: transparent; }
 .nav-item.is-active { color: var(--md-on-secondary-container); }
 .nav-item.is-active .icon { color: var(--md-on-secondary-container); }
+
+.screen[data-screen="map"] .nav-bar {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  z-index: 31;
+}
 
 /* ── Navigation screen ─────────────────────────────────────────── */
 
@@ -706,7 +702,8 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   padding-bottom: 8px;
   background: var(--md-surface);
 }
-.screen[data-screen="search"] .scroll-area { top: 156px; bottom: 80px; left: 0; right: 0; padding-bottom: 16px; }
+.screen[data-screen="search"] .chips--categories { top: 148px; }
+.screen[data-screen="search"] .scroll-area { top: 200px; bottom: 80px; left: 0; right: 0; padding-bottom: 16px; }
 .screen[data-screen="settings"] .scroll-area { top: 168px; bottom: 80px; left: 0; right: 0; padding-bottom: 24px; }
 
 .screen[data-screen="search"] .nav-bar,
@@ -831,14 +828,6 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .info-row .icon { color: var(--md-on-surface-variant); }
 .info-row__trail { margin-left: auto; font-size: var(--md-label-medium-size); color: var(--md-on-surface-variant); }
 
-.review {
-  margin: 14px 20px 0;
-  font-size: var(--md-body-medium-size);
-  line-height: 1.5;
-  color: var(--md-on-surface);
-}
-.review__author { display: block; margin-top: 4px; font-size: var(--md-label-medium-size); color: var(--md-on-surface-variant); }
-
 .sticky-cta {
   position: absolute;
   left: 0; right: 0; bottom: 0;
@@ -928,7 +917,6 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .segmented,
 .alt-row,
 .setting,
-.review,
 .hero__map .map-canvas {
   transition:
     background-color var(--md-duration-medium2) var(--md-sys-motion-easing-standard),

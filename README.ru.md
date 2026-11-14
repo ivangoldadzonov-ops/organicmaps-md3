@@ -8,7 +8,7 @@
 |---|---|
 | ![Прототип Organic Maps MD3 — светлая тема](docs/assets/preview-light.png) | ![Прототип Organic Maps MD3 — тёмная тема](docs/assets/preview-dark.png) |
 
-Редизайн интерфейса [Organic Maps](https://organicmaps.app) по правилам **Material Design 3**: дизайн-система, машинно-читаемые токены, интерактивный прототип и готовые к переносу реализации токенов под Android (Compose), iOS (SwiftUI) и десктоп (QML).
+Редизайн интерфейса [Organic Maps](https://organicmaps.app) по правилам **Material Design 3**: дизайн-система, машинно-читаемые токены, интерактивный прототип и готовые к переносу реализации токенов под Android (Compose) и десктоп (QML).
 
 > Это **дизайн-проект**, а не форк приложения. Код приложения не менялся — здесь лежит всё, что нужно, чтобы команда Organic Maps внедрила новый интерфейс: токены, спецификации, экраны и код.
 
@@ -28,9 +28,8 @@
 | `docs/design-system.md` | Цветовые роли, типографика, формы, elevation, motion, доступность |
 | `docs/components.md` | Спецификации компонентов: анатомия, состояния, поведение |
 | `docs/screens.md` | Разбор каждого экрана и принятые решения |
-| `docs/migration.md` | План перехода: что менять в Android / iOS / QML, по этапам |
+| `docs/migration.md` | План перехода: что менять в Android / QML, по этапам |
 | `android/` | Токены на Kotlin + Compose (`Color.kt`, `Type.kt`, `Shape.kt`, `Theme.kt`) |
-| `ios/` | Токены на Swift + SwiftUI (`OrganicMapsTheme.swift`) |
 | `qt/` | Токены на QML (`Theme.qml`) для десктопной версии |
 | `tools/serve.sh`, `tools/serve.ps1` | Локальный статический сервер для просмотра прототипа (Linux/macOS и Windows) |
 | `.github/workflows/pages.yml` | Публикация прототипа на GitHub Pages |
@@ -105,7 +104,7 @@ powershell -ExecutionPolicy Bypass -File tools/serve.ps1
 
 ## Внедрение
 
-1. **Токены** — скопировать `android/`, `ios/`, `qt/` в проект и подключить тему (пошагово — в `docs/migration.md`).
+1. **Токены** — скопировать `android/` и `qt/` в проект и подключить тему (пошагово — в `docs/migration.md`).
 2. **Стиль карты** — значения палитры карты лежат в `tokens.json → mapSymbols`; для применения нужно пересобрать стили в `data/` (см. `docs/STYLES.md` в основном репозитории Organic Maps).
 3. **Экраны** — спецификации в `docs/screens.md`, компоненты в `docs/components.md`.
 4. **Обратная связь** — открыть issue или обсуждение в этом репозитории.
@@ -118,12 +117,12 @@ powershell -ExecutionPolicy Bypass -File tools/serve.ps1
 
 ## English summary
 
-A complete Material Design 3 redesign for [Organic Maps](https://organicmaps.app): design tokens, component specifications, an interactive prototype of five key screens, and ready-to-use token implementations for Jetpack Compose, SwiftUI and QML.
+A complete Material Design 3 redesign for [Organic Maps](https://organicmaps.app): design tokens, component specifications, an interactive prototype of five key screens, and ready-to-use token implementations for Jetpack Compose and QML.
 
 - **Tokens:** `tokens/tokens.json` (source of truth), `tokens/css/tokens.css`
 - **Prototype:** `prototype/index.html` — no build step, open it in a browser
 - **Specs:** `docs/design-system.md`, `docs/components.md`, `docs/screens.md`, `docs/migration.md`
-- **Platform code:** `android/`, `ios/`, `qt/`
+- **Platform code:** `android/`, `qt/`
 
 If you reuse this design, please credit the Organic Maps Project — https://organicmaps.app
 

@@ -30,7 +30,6 @@
   <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
   <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9.5 5 7 7-7 7"/></symbol>
   <symbol id="i-back" viewBox="0 0 24 24"><path d="M20 12H4"/><path d="m10 6-6 6 6 6"/></symbol>
-  <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3.5 2.7 5.6 6.1.8-4.5 4.3 1.1 6.1-5.4-3-5.4 3 1.1-6.1L3.2 9.9l6.1-.8L12 3.5Z"/></symbol>
   <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.6"/><path d="M12 7.4V12l3.2 2"/></symbol>
   <symbol id="i-phone" viewBox="0 0 24 24"><path d="M7.2 3.6h3l1.5 3.9-2 1.4a11.4 11.4 0 0 0 5.4 5.4l1.4-2 3.9 1.5v3a2 2 0 0 1-2.2 2A16.6 16.6 0 0 1 5.2 5.8a2 2 0 0 1 2-2.2Z"/></symbol>
   <symbol id="i-share" viewBox="0 0 24 24"><circle cx="18" cy="5.4" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="18.6" r="2.6"/><path d="m8.4 10.8 7.2-4M8.4 13.2l7.2 4"/></symbol>
@@ -58,6 +57,7 @@
   <symbol id="i-signal" viewBox="0 0 24 24"><path d="M4 17.4V14M9 17.4V9.6M14 17.4V6.6M19 17.4V4" stroke-width="2.6"/></symbol>
   <symbol id="i-wifi" viewBox="0 0 24 24"><path d="M3 9a13 13 0 0 1 18 0M6.4 12.6a8.4 8.4 0 0 1 11.2 0M9.8 16.2a3.6 3.6 0 0 1 4.4 0"/><circle cx="12" cy="19.4" r="1.1" fill="currentColor" stroke="none"/></symbol>
   <symbol id="i-battery" viewBox="0 0 24 24"><rect x="2.6" y="7.4" width="16.4" height="9.2" rx="2.4"/><path d="M21.4 10.6v2.8"/><rect x="4.8" y="9.6" width="11" height="4.8" rx="1" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-card" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.6"/><path d="M3 10h18M7 15h4"/></symbol>
 </svg>
 
 <div class="page">
@@ -113,31 +113,6 @@
           </span>
         </div>
 
-        <div class="map-top">
-          <div class="search-row">
-            <button class="search-bar" type="button" data-go="search">
-              <svg class="icon"><use href="#i-menu"/></svg>
-              <span class="search-bar__label" data-i18n="map.searchPlaceholder">Search places and addresses</span>
-            </button>
-            <button class="icon-btn icon-btn--dense layers-btn" id="toggle-layers" type="button" title="Map layers" data-i18n-title="map.layersTitle" aria-label="Map layers" data-i18n-aria-label="map.layersAria" aria-expanded="false" aria-controls="layer-chips">
-              <svg class="icon"><use href="#i-layers"/></svg>
-            </button>
-          </div>
-
-          <div class="chips chips--layers" id="layer-chips" aria-hidden="true">
-            <button class="chip"><svg class="icon icon--18"><use href="#i-terrain"/></svg><span data-i18n="layers.terrain">Terrain</span></button>
-            <button class="chip"><svg class="icon icon--18"><use href="#i-bike"/></svg><span data-i18n="layers.bike">Bike lanes</span></button>
-            <button class="chip"><svg class="icon icon--18"><use href="#i-transit"/></svg><span data-i18n="layers.subway">Subway</span></button>
-          </div>
-
-          <div class="chips chips--floating">
-            <button class="chip is-selected"><svg class="icon icon--18"><use href="#i-restaurant"/></svg><span data-i18n="cat.food">Food</span></button>
-            <button class="chip"><svg class="icon icon--18"><use href="#i-coffee"/></svg><span data-i18n="cat.cafes">Cafes</span></button>
-            <button class="chip"><svg class="icon icon--18"><use href="#i-fuel"/></svg><span data-i18n="cat.fuel">Fuel</span></button>
-            <button class="chip"><svg class="icon icon--18"><use href="#i-hotel"/></svg><span data-i18n="cat.hotels">Hotels</span></button>
-          </div>
-        </div>
-
         <div class="map-controls">
           <button class="fab fab--small fab--tonal" title="Map layers" data-i18n-title="map.layersTitle" aria-label="Map layers" data-i18n-aria-label="map.layersAria">
             <svg class="icon"><use href="#i-layers"/></svg>
@@ -156,48 +131,31 @@
           <button class="zoom" aria-label="Zoom out" data-i18n-aria-label="map.zoomOut"><svg class="icon"><use href="#i-minus"/></svg></button>
         </div>
 
-        <div class="sheet sheet--peek" id="nearby-sheet" data-collapsible>
-          <div class="sheet__handle" data-i18n-aria-label="sheet.toggleAria"></div>
-          <div class="sheet__head">
-            <h2 class="title-large" data-i18n="nearby.title">Nearby</h2>
-            <button class="text-btn" data-i18n="nearby.all">See all</button>
+        <div class="map-search-dock">
+          <div class="chips chips--layers" id="layer-chips" aria-hidden="true">
+            <button class="chip"><svg class="icon icon--18"><use href="#i-terrain"/></svg><span data-i18n="layers.terrain">Terrain</span></button>
+            <button class="chip"><svg class="icon icon--18"><use href="#i-bike"/></svg><span data-i18n="layers.bike">Bike lanes</span></button>
+            <button class="chip"><svg class="icon icon--18"><use href="#i-transit"/></svg><span data-i18n="layers.subway">Subway</span></button>
           </div>
 
-          <ul class="place-list">
-            <li class="place-row">
-              <span class="poi poi--cafe"><svg class="icon"><use href="#i-coffee"/></svg></span>
-              <span class="place-row__text">
-                <span class="place-row__name" data-i18n="nearby.coffeeName">Coffeemania</span>
-                <span class="place-row__meta" data-i18n-html="nearby.coffeeMeta">Cafe · 320 m · <b class="open">Open</b></span>
-              </span>
-              <span class="rating"><svg class="icon icon--16"><use href="#i-star"/></svg><span data-i18n="rating.4_6">4.6</span></span>
-            </li>
-            <li class="place-row">
-              <span class="poi poi--food"><svg class="icon"><use href="#i-restaurant"/></svg></span>
-              <span class="place-row__text">
-                <span class="place-row__name" data-i18n="nearby.canteenName">Canteen No. 1</span>
-                <span class="place-row__meta" data-i18n-html="nearby.canteenMeta">Lunch · 540 m · <b class="open">Open</b></span>
-              </span>
-              <span class="rating"><svg class="icon icon--16"><use href="#i-star"/></svg><span data-i18n="rating.4_4">4.4</span></span>
-            </li>
-            <li class="place-row">
-              <span class="poi poi--park"><svg class="icon"><use href="#i-park"/></svg></span>
-              <span class="place-row__text">
-                <span class="place-row__name" data-i18n="nearby.parkName">Patriarch Ponds</span>
-                <span class="place-row__meta" data-i18n-html="nearby.parkMeta">Park · 760 m · <b>Open 24/7</b></span>
-              </span>
-              <span class="rating"><svg class="icon icon--16"><use href="#i-star"/></svg><span data-i18n="rating.4_8">4.8</span></span>
-            </li>
-          </ul>
-
-          <nav class="nav-bar" aria-label="Main navigation" data-i18n-aria-label="nav.label">
-            <button class="nav-item is-active" data-go="map"><svg class="icon"><use href="#i-map"/></svg><span data-i18n="navTab.map">Map</span></button>
-            <button class="nav-item" data-go="search"><svg class="icon"><use href="#i-search"/></svg><span data-i18n="navTab.search">Search</span></button>
-            <button class="nav-item" data-go="nav"><svg class="icon"><use href="#i-route"/></svg><span data-i18n="navTab.route">Route</span></button>
-            <button class="nav-item"><svg class="icon"><use href="#i-bookmark"/></svg><span data-i18n="navTab.saved">Saved</span></button>
-            <button class="nav-item" data-go="settings"><svg class="icon"><use href="#i-settings"/></svg><span data-i18n="navTab.more">More</span></button>
-          </nav>
+          <div class="search-row">
+            <button class="search-bar" type="button" data-go="search">
+              <svg class="icon"><use href="#i-search"/></svg>
+              <span class="search-bar__label" data-i18n="map.searchPlaceholder">Search places and addresses</span>
+            </button>
+            <button class="icon-btn icon-btn--dense layers-btn" id="toggle-layers" type="button" title="Map layers" data-i18n-title="map.layersTitle" aria-label="Map layers" data-i18n-aria-label="map.layersAria" aria-expanded="false" aria-controls="layer-chips">
+              <svg class="icon"><use href="#i-layers"/></svg>
+            </button>
+          </div>
         </div>
+
+        <nav class="nav-bar nav-bar--map" aria-label="Main navigation" data-i18n-aria-label="nav.label">
+          <button class="nav-item is-active" data-go="map"><svg class="icon"><use href="#i-map"/></svg><span data-i18n="navTab.map">Map</span></button>
+          <button class="nav-item" data-go="search"><svg class="icon"><use href="#i-search"/></svg><span data-i18n="navTab.search">Search</span></button>
+          <button class="nav-item" data-go="nav"><svg class="icon"><use href="#i-route"/></svg><span data-i18n="navTab.route">Route</span></button>
+          <button class="nav-item"><svg class="icon"><use href="#i-bookmark"/></svg><span data-i18n="navTab.saved">Saved</span></button>
+          <button class="nav-item" data-go="settings"><svg class="icon"><use href="#i-settings"/></svg><span data-i18n="navTab.more">More</span></button>
+        </nav>
       </section>
 
       <!-- ═══ 2. Navigation ════════════════════════════════════ -->
@@ -295,8 +253,15 @@
         <div class="chips chips--static">
           <button class="chip is-selected"><svg class="icon icon--18"><use href="#i-clock"/></svg><span data-i18n="search.chipOpen">Open now</span></button>
           <button class="chip"><svg class="icon icon--18"><use href="#i-pin"/></svg><span data-i18n="search.chipNearby">Nearby</span></button>
-          <button class="chip"><svg class="icon icon--18"><use href="#i-star"/></svg><span data-i18n="search.chipRating">4.5+</span></button>
-          <button class="chip"><svg class="icon icon--18"><use href="#i-coffee"/></svg><span data-i18n="search.chipSpecialty">Specialty</span></button>
+          <button class="chip"><svg class="icon icon--18"><use href="#i-wifi"/></svg><span data-i18n="search.chipWifi">Wi-Fi</span></button>
+          <button class="chip"><svg class="icon icon--18"><use href="#i-card"/></svg><span data-i18n="search.chipCards">Card payment</span></button>
+        </div>
+
+        <div class="chips chips--static chips--categories">
+          <button class="chip is-selected"><svg class="icon icon--18"><use href="#i-restaurant"/></svg><span data-i18n="cat.food">Food</span></button>
+          <button class="chip"><svg class="icon icon--18"><use href="#i-coffee"/></svg><span data-i18n="cat.cafes">Cafes</span></button>
+          <button class="chip"><svg class="icon icon--18"><use href="#i-fuel"/></svg><span data-i18n="cat.fuel">Fuel</span></button>
+          <button class="chip"><svg class="icon icon--18"><use href="#i-hotel"/></svg><span data-i18n="cat.hotels">Hotels</span></button>
         </div>
 
         <div class="scroll-area">
@@ -308,7 +273,7 @@
             <span class="result-card__body">
               <span class="result-card__title" data-i18n="nearby.coffeeName">Coffeemania</span>
               <span class="result-card__meta" data-i18n="search.bestMeta">Cafe · 8 Tverskaya St</span>
-              <span class="result-card__tags" data-i18n-html="search.bestTags"><b class="open">Open until 23:00</b> · 320 m · 4.6 ★</span>
+              <span class="result-card__tags" data-i18n-html="search.bestTags"><b class="open">Open until 23:00</b> · 320 m · Wi-Fi · Cards</span>
             </span>
             <span class="result-card__action">
               <span class="icon-btn icon-btn--filled"><svg class="icon"><use href="#i-route"/></svg></span>
@@ -319,22 +284,22 @@
           <ul class="result-list">
             <li class="result-row">
               <span class="poi poi--cafe"><svg class="icon"><use href="#i-coffee"/></svg></span>
-              <span class="result-row__text"><b>Surf Coffee</b><span data-i18n="search.surfMeta">Coffee shop · 480 m · 4.7 ★</span></span>
+              <span class="result-row__text"><b>Surf Coffee</b><span data-i18n="search.surfMeta">Coffee shop · 480 m · Wi-Fi</span></span>
               <svg class="icon icon--20 chevron"><use href="#i-chevron"/></svg>
             </li>
             <li class="result-row">
               <span class="poi poi--cafe"><svg class="icon"><use href="#i-coffee"/></svg></span>
-              <span class="result-row__text"><b data-i18n="search.shokoName">Shokoladnitsa</b><span data-i18n="search.shokoMeta">Cafe · 610 m · 4.2 ★</span></span>
+              <span class="result-row__text"><b data-i18n="search.shokoName">Shokoladnitsa</b><span data-i18n="search.shokoMeta">Cafe · 610 m · Cards</span></span>
               <svg class="icon icon--20 chevron"><use href="#i-chevron"/></svg>
             </li>
             <li class="result-row">
               <span class="poi poi--food"><svg class="icon"><use href="#i-restaurant"/></svg></span>
-              <span class="result-row__text"><b>Cofix</b><span data-i18n="search.cofixMeta">Coffee shop · 700 m · 4.5 ★</span></span>
+              <span class="result-row__text"><b>Cofix</b><span data-i18n="search.cofixMeta">Coffee shop · 700 m · Open until 21:00</span></span>
               <svg class="icon icon--20 chevron"><use href="#i-chevron"/></svg>
             </li>
             <li class="result-row">
               <span class="poi poi--cafe"><svg class="icon"><use href="#i-coffee"/></svg></span>
-              <span class="result-row__text"><b>Double B</b><span data-i18n="search.doublebMeta">Coffee shop · 820 m · 4.8 ★</span></span>
+              <span class="result-row__text"><b>Double B</b><span data-i18n="search.doublebMeta">Coffee shop · 820 m · Wi-Fi · Cards</span></span>
               <svg class="icon icon--20 chevron"><use href="#i-chevron"/></svg>
             </li>
           </ul>
@@ -379,8 +344,7 @@
             <h2 class="headline-small" data-i18n="nearby.coffeeName">Coffeemania</h2>
             <p class="place-head__meta">
               <span data-i18n="place.category">Cafe</span><span class="dot">·</span>
-              <span class="rating"><svg class="icon icon--16"><use href="#i-star"/></svg><span data-i18n="rating.4_6">4.6</span> <span class="muted">(320)</span></span>
-              <span class="dot">·</span>
+              <span data-i18n="place.cuisineShort">Coffee, pastries</span><span class="dot">·</span>
               <b class="open" data-i18n="place.openUntil">Open until 23:00</b>
             </p>
           </div>
@@ -407,14 +371,12 @@
           <div class="info-card">
             <div class="info-row"><svg class="icon"><use href="#i-pin"/></svg><span data-i18n="place.address">8 Tverskaya St, Moscow</span><span class="info-row__trail" data-i18n="place.distance">320 m</span></div>
             <div class="info-row"><svg class="icon"><use href="#i-clock"/></svg><span data-i18n="place.hours">Daily, 8:00 – 23:00</span></div>
+            <div class="info-row"><svg class="icon"><use href="#i-restaurant"/></svg><span data-i18n="place.cuisine">Cuisine: coffee, pastries</span></div>
+            <div class="info-row"><svg class="icon"><use href="#i-wifi"/></svg><span data-i18n="place.wifi">Wi-Fi: yes</span></div>
+            <div class="info-row"><svg class="icon"><use href="#i-card"/></svg><span data-i18n="place.cards">Cards accepted: yes</span></div>
             <div class="info-row"><svg class="icon"><use href="#i-globe"/></svg><span>coffeemania.ru</span></div>
             <div class="info-row"><svg class="icon"><use href="#i-phone"/></svg><span>+7 495 123-45-67</span></div>
           </div>
-
-          <p class="review">
-            <span data-i18n="place.review">“Best flat white in the centre, with power sockets and a quiet room on the second floor.”</span>
-            <span class="review__author" data-i18n="place.reviewAuthor">Anna, 2 days ago</span>
-          </p>
 
           <div class="sticky-cta">
             <button class="btn btn--filled btn--full" data-go="nav">

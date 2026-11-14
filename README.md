@@ -8,7 +8,7 @@
 |---|---|
 | ![Organic Maps MD3 prototype — light theme](docs/assets/preview-light.png) | ![Organic Maps MD3 prototype — dark theme](docs/assets/preview-dark.png) |
 
-A redesign of [Organic Maps](https://organicmaps.app) following **Material Design 3**: a design system, machine-readable tokens, an interactive prototype, and token implementations ready to port to Android (Compose), iOS (SwiftUI), and desktop (QML).
+A redesign of [Organic Maps](https://organicmaps.app) following **Material Design 3**: a design system, machine-readable tokens, an interactive prototype, and token implementations ready to port to Android (Compose) and desktop (QML).
 
 > This is a **design project**, not a fork of the application. The app code is unchanged — this repository contains everything the Organic Maps team needs to adopt the new interface: tokens, specifications, screens, and code.
 
@@ -28,9 +28,8 @@ A redesign of [Organic Maps](https://organicmaps.app) following **Material Desig
 | `docs/design-system.md` | Colour roles, type scale, shape, elevation, motion, and accessibility rules |
 | `docs/components.md` | Component specifications: anatomy, states, behaviour |
 | `docs/screens.md` | Screen-by-screen rationale and design decisions |
-| `docs/migration.md` | Staged migration plan: what to change in Android / iOS / QML |
+| `docs/migration.md` | Staged migration plan: what to change in Android / QML |
 | `android/` | Kotlin + Compose tokens (`Color.kt`, `Type.kt`, `Shape.kt`, `Theme.kt`) |
-| `ios/` | Swift + SwiftUI tokens (`OrganicMapsTheme.swift`) |
 | `qt/` | QML tokens (`Theme.qml`) for the desktop version |
 | `tools/serve.sh`, `tools/serve.ps1` | Local static server for previewing the prototype (Linux/macOS and Windows) |
 | `.github/workflows/pages.yml` | Publishes the prototype to GitHub Pages |
@@ -105,7 +104,7 @@ Full list in `tokens/tokens.json` and `tokens/css/tokens.css`.
 
 ## Implementation
 
-1. **Tokens** — copy `android/`, `ios/`, and `qt/` into the project and connect the theme (step-by-step in `docs/migration.md`).
+1. **Tokens** — copy `android/` and `qt/` into the project and connect the theme (step-by-step in `docs/migration.md`).
 2. **Map style** — the map palette values live in `tokens.json → mapSymbols`; applying them requires rebuilding styles in `data/` (see `docs/STYLES.md` in the main Organic Maps repository).
 3. **Screens** — specifications in `docs/screens.md`, components in `docs/components.md`.
 4. **Feedback** — open an issue or discussion in this repository.

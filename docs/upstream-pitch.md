@@ -12,7 +12,7 @@ Design proposal: Material Design 3 refresh for Organic Maps (interactive prototy
 
 ### Summary
 
-This proposal is a visual refresh of Organic Maps based on **Material Design 3**, without changing the map engine, data pipeline, or offline-first behaviour. It includes an interactive prototype of five key screens, a machine-readable token source, and ready-to-use implementations for Jetpack Compose, SwiftUI, and QML.
+This proposal is a visual refresh of Organic Maps based on **Material Design 3**, without changing the map engine, data pipeline, or offline-first behaviour. It includes an interactive prototype of five key screens, a machine-readable token source, and ready-to-use implementations for Jetpack Compose and QML.
 
 The goal is not to make Organic Maps look like a generic Material app. The goal is to keep the map as the primary object, make actions easier to reach, and give the interface a coherent, accessible visual system on every platform.
 
@@ -43,8 +43,8 @@ The prototype includes all five screens, light and dark themes, and direct links
 - `docs/design-system.md` — colour roles, type scale, shape, elevation, motion, and accessibility rules.
 - `docs/components.md` — component anatomy, states, and behaviour.
 - `docs/screens.md` — screen-by-screen rationale for the five prototypes.
-- `docs/migration.md` — a staged migration plan for Android, iOS, and Qt.
-- `android/`, `ios/`, `qt/` — token implementations for Compose, SwiftUI, and QML.
+- `docs/migration.md` — a staged migration plan for Android and Qt.
+- `android/`, `qt/` — token implementations for Compose and QML.
 - `android/app/src/main/res/values/colors.xml` and `values-night/colors.xml` — XML colour resources for legacy Views screens, kept in sync with the token source.
 
 ### Proposed rollout
@@ -63,8 +63,8 @@ Introduce the five-item bottom navigation with an active indicator, move map pan
 **Phase 3 — Screen-by-screen migration (about 3 weeks).**
 Migrate place details, search, settings, and navigation one screen at a time. Each screen can be reviewed and reverted independently. Screenshot tests cover all five screens in both themes.
 
-**Phase 4 — iOS and Qt (in parallel after Phase 0).**
-Reuse the same tokens and metrics, but keep native controls: `UISheetPresentationController` on iOS and a QML theme singleton on desktop. Material components are not forced onto non-Android platforms.
+**Phase 4 — Qt / desktop (after Phase 0).**
+Reuse the same tokens and metrics, but keep native controls: a QML theme singleton on desktop. Material components stay on Android and desktop, where they are a native fit.
 
 **Phase 5 — Cleanup.**
 Remove legacy aliases, update store screenshots, and record contrast checks in the design-system documentation.
@@ -78,7 +78,7 @@ Remove legacy aliases, update store screenshots, and record contrast checks in t
 
 ### Questions for maintainers
 
-1. Would a token-first rollout fit the current Android/iOS/Qt structure?
+1. Would a token-first rollout fit the current Android/Qt structure?
 2. Which existing colour resource names should be kept as aliases during the transition?
 3. Is the proposed five-screen scope appropriate for an initial design review, or should it be narrowed to the map and place-details screens first?
 4. Would you prefer this as a Discussion for design feedback before any implementation PRs?

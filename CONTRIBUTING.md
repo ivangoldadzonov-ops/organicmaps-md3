@@ -6,7 +6,7 @@
 
 | Хочу | Куда |
 |---|---|
-| Изменить цвет, форму, типографику | `tokens/tokens.json` → затем `tokens/css/tokens.css` и файлы в `android/`, `ios/`, `qt/` |
+| Изменить цвет, форму, типографику | `tokens/tokens.json` → затем `tokens/css/tokens.css` и файлы в `android/`, `qt/` |
 | Поправить компонент в прототипе | `prototype/styles/app.css`, `prototype/scripts/screens.js` |
 | Описать новый экран | `docs/screens.md` + макет в `prototype/scripts/screens.js` |
 | Предложить правку спецификации | `docs/components.md`, `docs/design-system.md` |
