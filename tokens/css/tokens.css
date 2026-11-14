@@ -1,0 +1,173 @@
+/* Organic Maps MD3 — design tokens as CSS custom properties.
+   Generated mirror of tokens/tokens.json. Keep both in sync. */
+
+:root {
+  color-scheme: light;
+
+  /* Primary */
+  --md-primary: #146c43;
+  --md-on-primary: #ffffff;
+  --md-primary-container: #a6f2c1;
+  --md-on-primary-container: #00210f;
+
+  /* Secondary */
+  --md-secondary: #4e6355;
+  --md-on-secondary: #ffffff;
+  --md-secondary-container: #d0e8d6;
+  --md-on-secondary-container: #0b1f14;
+
+  /* Tertiary */
+  --md-tertiary: #3a6470;
+  --md-on-tertiary: #ffffff;
+  --md-tertiary-container: #beeaf8;
+  --md-on-tertiary-container: #001f27;
+
+  /* Error */
+  --md-error: #ba1a1a;
+  --md-on-error: #ffffff;
+  --md-error-container: #ffdad6;
+  --md-on-error-container: #410002;
+
+  /* Surfaces */
+  --md-surface: #f7fbf5;
+  --md-on-surface: #191c19;
+  --md-surface-variant: #dce5db;
+  --md-on-surface-variant: #414942;
+  --md-surface-dim: #d8ddd7;
+  --md-surface-bright: #f7fbf5;
+  --md-surface-container-lowest: #ffffff;
+  --md-surface-container-low: #f1f5ef;
+  --md-surface-container: #ebefe9;
+  --md-surface-container-high: #e5e9e4;
+  --md-surface-container-highest: #e0e4de;
+
+  /* Utility */
+  --md-outline: #717971;
+  --md-outline-variant: #c0c9c0;
+  --md-inverse-surface: #2e312e;
+  --md-inverse-on-surface: #eff1ec;
+  --md-inverse-primary: #8bd6a5;
+  --md-scrim: #000000;
+  --md-shadow: #000000;
+
+  /* Map symbols */
+  --map-park: #cde8c4;
+  --map-water: #b6def5;
+  --map-building: #e7e4db;
+  --map-road-casing: #dad6c9;
+  --map-road-fill: #ffffff;
+  --map-highway-fill: #ffe1a8;
+  --map-label: #4a5049;
+  --map-route: #146c43;
+
+  /* Typography */
+  --md-font-brand: Roboto, "Noto Sans", system-ui, sans-serif;
+  --md-font-plain: Roboto, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --md-font-mono: "Roboto Mono", ui-monospace, monospace;
+
+  --md-display-large-size: 57px;   --md-display-large-lh: 64px;  --md-display-large-ls: -0.25px;
+  --md-display-medium-size: 45px;  --md-display-medium-lh: 52px; --md-display-medium-ls: 0px;
+  --md-display-small-size: 36px;   --md-display-small-lh: 44px;  --md-display-small-ls: 0px;
+  --md-headline-large-size: 32px;  --md-headline-large-lh: 40px; --md-headline-large-ls: 0px;
+  --md-headline-medium-size: 28px; --md-headline-medium-lh: 36px;--md-headline-medium-ls: 0px;
+  --md-headline-small-size: 24px;  --md-headline-small-lh: 32px; --md-headline-small-ls: 0px;
+  --md-title-large-size: 22px;     --md-title-large-lh: 28px;    --md-title-large-ls: 0px;
+  --md-title-medium-size: 16px;    --md-title-medium-lh: 24px;   --md-title-medium-ls: 0.15px;
+  --md-title-small-size: 14px;     --md-title-small-lh: 20px;    --md-title-small-ls: 0.1px;
+  --md-body-large-size: 16px;      --md-body-large-lh: 24px;     --md-body-large-ls: 0.5px;
+  --md-body-medium-size: 14px;     --md-body-medium-lh: 20px;    --md-body-medium-ls: 0.25px;
+  --md-body-small-size: 12px;      --md-body-small-lh: 16px;     --md-body-small-ls: 0.4px;
+  --md-label-large-size: 14px;     --md-label-large-lh: 20px;    --md-label-large-ls: 0.1px;
+  --md-label-medium-size: 12px;    --md-label-medium-lh: 16px;   --md-label-medium-ls: 0.5px;
+  --md-label-small-size: 11px;     --md-label-small-lh: 16px;    --md-label-small-ls: 0.5px;
+
+  /* Shape */
+  --md-shape-xs: 4px;
+  --md-shape-sm: 8px;
+  --md-shape-md: 12px;
+  --md-shape-lg: 16px;
+  --md-shape-xl: 28px;
+  --md-shape-full: 999px;
+
+  /* Elevation */
+  --md-elevation-0: none;
+  --md-elevation-1: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.15);
+  --md-elevation-2: 0 1px 2px rgba(0, 0, 0, 0.3), 0 2px 6px 2px rgba(0, 0, 0, 0.15);
+  --md-elevation-3: 0 4px 8px 3px rgba(0, 0, 0, 0.15), 0 1px 3px rgba(0, 0, 0, 0.3);
+  --md-elevation-4: 0 6px 10px 4px rgba(0, 0, 0, 0.15), 0 2px 3px rgba(0, 0, 0, 0.3);
+  --md-elevation-5: 0 8px 12px 6px rgba(0, 0, 0, 0.15), 0 4px 4px rgba(0, 0, 0, 0.3);
+
+  /* Motion */
+  --md-easing-emphasized: cubic-bezier(0.2, 0, 0, 1);
+  --md-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --md-easing-decelerate: cubic-bezier(0, 0, 0, 1);
+  --md-duration-short2: 100ms;
+  --md-duration-short4: 200ms;
+  --md-duration-medium2: 300ms;
+  --md-duration-long2: 500ms;
+  --md-duration-extra-long4: 1000ms;
+
+  /* Layout */
+  --md-margin-mobile: 16px;
+  --md-gutter: 8px;
+  --md-touch-target: 48px;
+  --md-app-bar-height: 64px;
+  --md-search-bar-height: 56px;
+  --md-nav-bar-height: 80px;
+  --md-fab-size: 56px;
+  --md-fab-size-small: 40px;
+  --md-icon-size: 24px;
+  --md-device-width: 412px;
+  --md-device-height: 892px;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --md-primary: #8bd6a5;
+  --md-on-primary: #003920;
+  --md-primary-container: #00522f;
+  --md-on-primary-container: #a6f2c1;
+
+  --md-secondary: #b4ccba;
+  --md-on-secondary: #203528;
+  --md-secondary-container: #364b3d;
+  --md-on-secondary-container: #d0e8d6;
+
+  --md-tertiary: #a2cddc;
+  --md-on-tertiary: #033541;
+  --md-tertiary-container: #214c58;
+  --md-on-tertiary-container: #beeaf8;
+
+  --md-error: #ffb4ab;
+  --md-on-error: #690005;
+  --md-error-container: #93000a;
+  --md-on-error-container: #ffdad6;
+
+  --md-surface: #0f1511;
+  --md-on-surface: #dfe4de;
+  --md-surface-variant: #414942;
+  --md-on-surface-variant: #c0c9c0;
+  --md-surface-dim: #0f1511;
+  --md-surface-bright: #353b36;
+  --md-surface-container-lowest: #0a0f0c;
+  --md-surface-container-low: #171d18;
+  --md-surface-container: #1b211c;
+  --md-surface-container-high: #252b26;
+  --md-surface-container-highest: #303631;
+
+  --md-outline: #8a938b;
+  --md-outline-variant: #414942;
+  --md-inverse-surface: #dfe4de;
+  --md-inverse-on-surface: #2e312e;
+  --md-inverse-primary: #146c43;
+
+  --map-park: #1e3524;
+  --map-water: #12405a;
+  --map-building: #262b27;
+  --map-road-casing: #2c322e;
+  --map-road-fill: #3a413b;
+  --map-highway-fill: #5a4522;
+  --map-label: #b9c2b9;
+  --map-route: #8bd6a5;
+}

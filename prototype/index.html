@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Organic Maps — Material Design 3 concept</title>
+<meta name="description" content="Концепт редизайна Organic Maps по Material Design 3: пять экранов, светлая и тёмная темы, интерактивный прототип.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../tokens/css/tokens.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ── Icon sprite ─────────────────────────────────────────────── -->
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4.3-4.3"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 13 9 5 9-5"/></symbol>
+  <symbol id="i-locate" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M12 2v3.4M12 18.6V22M2 12h3.4M18.6 12H22"/><circle cx="12" cy="12" r="7.4"/></symbol>
+  <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m15.6 8.4-2 5.2-5.2 2 2-5.2 5.2-2Z"/></symbol>
+  <symbol id="i-map" viewBox="0 0 24 24"><path d="m9 3 6 2.4L21 3v16.2L15 21l-6-2.4L3 21V4.8L9 3Z"/><path d="M9 3v15.6M15 5.4V21"/></symbol>
+  <symbol id="i-route" viewBox="0 0 24 24"><circle cx="6" cy="18" r="2.6"/><circle cx="18" cy="6" r="2.6"/><path d="M8.6 18H14a3.4 3.4 0 0 0 0-6.8H9.6a3.2 3.2 0 0 1 0-6.4h5.8"/></symbol>
+  <symbol id="i-bookmark" viewBox="0 0 24 24"><path d="M7 3.8h10a1 1 0 0 1 1 1v15.4l-6-4.2-6 4.2V4.8a1 1 0 0 1 1-1Z"/></symbol>
+  <symbol id="i-settings" viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2.4"/><circle cx="8" cy="17" r="2.4"/></symbol>
+  <symbol id="i-arrow-turn-right" viewBox="0 0 24 24"><path d="M6 20V10a4 4 0 0 1 4-4h8"/><path d="m14 2 4 4-4 4"/></symbol>
+  <symbol id="i-arrow-turn-left" viewBox="0 0 24 24"><path d="M18 20V10a4 4 0 0 0-4-4H6"/><path d="m10 2-4 4 4 4"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.1 7-11a7 7 0 1 0-14 0c0 4.9 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+  <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9.5 5 7 7-7 7"/></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24"><path d="M20 12H4"/><path d="m10 6-6 6 6 6"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3.5 2.7 5.6 6.1.8-4.5 4.3 1.1 6.1-5.4-3-5.4 3 1.1-6.1L3.2 9.9l6.1-.8L12 3.5Z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.6"/><path d="M12 7.4V12l3.2 2"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M7.2 3.6h3l1.5 3.9-2 1.4a11.4 11.4 0 0 0 5.4 5.4l1.4-2 3.9 1.5v3a2 2 0 0 1-2.2 2A16.6 16.6 0 0 1 5.2 5.8a2 2 0 0 1 2-2.2Z"/></symbol>
+  <symbol id="i-share" viewBox="0 0 24 24"><circle cx="18" cy="5.4" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="18.6" r="2.6"/><path d="m8.4 10.8 7.2-4M8.4 13.2l7.2 4"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3.4 9h17.2M3.4 15h17.2"/><path d="M12 3c2.6 3 2.6 15 0 18M12 3c-2.6 3-2.6 15 0 18"/></symbol>
+  <symbol id="i-walk" viewBox="0 0 24 24"><circle cx="13" cy="4.4" r="1.8"/><path d="m10.4 21 1.8-5-2.6-2.4.9-4.6L13.2 11l2.8 1.2M9.6 12.4 8 17l2.8.6M15.4 14l1.8 3.2"/></symbol>
+  <symbol id="i-car" viewBox="0 0 24 24"><path d="M4.6 16.4V12l1.9-4.2h11l1.9 4.2v4.4"/><path d="M4.6 12h14.8"/><circle cx="7.6" cy="16.6" r="1.7"/><circle cx="16.4" cy="16.6" r="1.7"/></symbol>
+  <symbol id="i-bike" viewBox="0 0 24 24"><circle cx="6" cy="16.6" r="3.4"/><circle cx="18" cy="16.6" r="3.5"/><path d="m9 17 3-8h3.4M12 9l-1.6-2.4M8 13.4l3.6.2 3 3.2"/></symbol>
+  <symbol id="i-transit" viewBox="0 0 24 24"><rect x="5.6" y="3.6" width="12.8" height="13.4" rx="2.4"/><path d="M5.6 11h12.8M9 20l1.6-3M15 20l-1.6-3"/><circle cx="9" cy="14.2" r=".9"/><circle cx="15" cy="14.2" r=".9"/></symbol>
+  <symbol id="i-coffee" viewBox="0 0 24 24"><path d="M4.6 8h11v6.2a4.2 4.2 0 0 1-4.2 4.2H8.8a4.2 4.2 0 0 1-4.2-4.2V8Z"/><path d="M15.6 9.4h1.8a2.3 2.3 0 0 1 0 4.6h-1.8M4 21h12"/></symbol>
+  <symbol id="i-restaurant" viewBox="0 0 24 24"><path d="M7 3v7.4M9.6 3v7.4M7 10.4V21M9.6 10.4V21"/><path d="M15.4 21v-8.2c0-3.6 2.6-4.4 2.6-4.4V21"/></symbol>
+  <symbol id="i-hotel" viewBox="0 0 24 24"><path d="M3.4 19.4V6h2.2v13.4M19.2 19.4V11a4 4 0 0 0-4-4h-5v12.4"/><path d="M3.4 13h15.8M2 19.4h20"/></symbol>
+  <symbol id="i-fuel" viewBox="0 0 24 24"><path d="M5 21V4.6A1.6 1.6 0 0 1 6.6 3h5A1.6 1.6 0 0 1 13.2 4.6V21"/><path d="M3.6 21h11M5.8 9h7.6"/><path d="M13.2 8.4h2.6a2 2 0 0 1 2 2v6.2a1.8 1.8 0 0 0 3.6 0V9.6l-2.6-3.2"/></symbol>
+  <symbol id="i-pharmacy" viewBox="0 0 24 24"><rect x="3.6" y="3.6" width="16.8" height="16.8" rx="3"/><path d="M12 7.6v8.8M7.6 12h8.8"/></symbol>
+  <symbol id="i-park" viewBox="0 0 24 24"><path d="M12 3 6.4 12h11L12 3Z"/><path d="M12 9.6 6.8 18h10.4L12 9.6Z"/><path d="M12 18v3.2"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.4"/><path d="M12 2.4v2.2M12 19.4v2.2M2.4 12h2.2M19.4 12h2.2M5.2 5.2l1.6 1.6M17.2 17.2l1.6 1.6M18.8 5.2l-1.6 1.6M6.8 17.2l-1.6 1.6"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.4A8.4 8.4 0 0 1 9.6 4a8.6 8.6 0 1 0 10.4 10.4Z"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3.6" y="3.6" width="7" height="7" rx="1.4"/><rect x="13.4" y="3.6" width="7" height="7" rx="1.4"/><rect x="3.6" y="13.4" width="7" height="7" rx="1.4"/><rect x="13.4" y="13.4" width="7" height="7" rx="1.4"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m4.8 12.6 4.8 4.8L19.2 7.8"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3.6v11.6"/><path d="m7.6 11 4.4 4.4 4.4-4.4M4 20.4h16"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.6"/><path d="M12 11v5.4"/><circle cx="12" cy="7.9" r="1.05" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 5 5.6v6c0 4.4 3 7.6 7 9.4 4-1.8 7-5 7-9.4v-6L12 3Z"/><path d="m9 12 2.2 2.2L15.4 10"/></symbol>
+  <symbol id="i-signal" viewBox="0 0 24 24"><path d="M4 17.4V14M9 17.4V9.6M14 17.4V6.6M19 17.4V4" stroke-width="2.6"/></symbol>
+  <symbol id="i-wifi" viewBox="0 0 24 24"><path d="M3 9a13 13 0 0 1 18 0M6.4 12.6a8.4 8.4 0 0 1 11.2 0M9.8 16.2a3.6 3.6 0 0 1 4.4 0"/><circle cx="12" cy="19.4" r="1.1" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-battery" viewBox="0 0 24 24"><rect x="2.6" y="7.4" width="16.4" height="9.2" rx="2.4"/><path d="M21.4 10.6v2.8"/><rect x="4.8" y="9.6" width="11" height="4.8" rx="1" fill="currentColor" stroke="none"/></symbol>
+</svg>
+
+<div class="page">
+
+  <header class="topbar">
+    <div class="topbar__brand">
+      <span class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" class="icon"><use href="#i-park"/></svg>
+      </span>
+      <div>
+        <h1>Organic Maps</h1>
+        <p>Material Design 3 · concept</p>
+      </div>
+    </div>
+
+    <nav class="screens" aria-label="Экраны прототипа">
+      <button class="screen-tab is-active" data-screen="map">Карта</button>
+      <button class="screen-tab" data-screen="nav">Навигация</button>
+      <button class="screen-tab" data-screen="search">Поиск</button>
+      <button class="screen-tab" data-screen="place">Место</button>
+      <button class="screen-tab" data-screen="settings">Настройки</button>
+    </nav>
+
+    <div class="topbar__actions">
+      <button class="icon-btn" id="toggle-theme" title="Светлая / тёмная тема" aria-label="Переключить тему">
+        <svg class="icon"><use href="#i-moon"/></svg>
+      </button>
+      <button class="icon-btn" id="toggle-all" title="Все экраны" aria-label="Показать все экраны" aria-pressed="false">
+        <svg class="icon"><use href="#i-grid"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="stage" id="stage">
+
+    <!-- ── Device ─────────────────────────────────────────────── -->
+    <div class="device" id="device">
+
+      <!-- ═══ 1. Map ═══════════════════════════════════════════ -->
+      <section class="screen is-active" data-screen="map" aria-label="Карта">
+        <div class="map-canvas" data-route="off"></div>
+
+        <div class="statusbar statusbar--dark">
+          <span class="statusbar__time">9:41</span>
+          <span class="statusbar__icons">
+            <svg class="icon icon--18"><use href="#i-signal"/></svg>
+            <svg class="icon icon--18"><use href="#i-wifi"/></svg>
+            <svg class="icon icon--18"><use href="#i-battery"/></svg>
+          </span>
+        </div>
+
+        <div class="map-top">
+          <button class="search-bar" type="button" data-go="search">
+            <svg class="icon"><use href="#i-menu"/></svg>
+            <span class="search-bar__label">Поиск мест и адресов</span>
+            <span class="avatar" aria-hidden="true">И</span>
+          </button>
+
+          <div class="chips chips--floating">
+            <button class="chip is-selected"><svg class="icon icon--18"><use href="#i-restaurant"/></svg>Еда</button>
+            <button class="chip"><svg class="icon icon--18"><use href="#i-coffee"/></svg>Кафе</button>
+            <button class="chip"><svg class="icon icon--18"><use href="#i-fuel"/></svg>АЗС</button>
+            <button class="chip"><svg class="icon icon--18"><use href="#i-hotel"/></svg>Отели</button>
+          </div>
+        </div>
+
+        <div class="map-controls">
+          <button class="fab fab--small fab--tonal" title="Слои карты" aria-label="Слои карты">
+            <svg class="icon"><use href="#i-layers"/></svg>
+          </button>
+          <button class="fab fab--small fab--tonal" title="Ориентация" aria-label="Ориентация карты">
+            <svg class="icon"><use href="#i-compass"/></svg>
+          </button>
+          <button class="fab fab--primary" title="Моё местоположение" aria-label="Моё местоположение">
+            <svg class="icon"><use href="#i-locate"/></svg>
+          </button>
+        </div>
+
+        <div class="zoom-cluster">
+          <button class="zoom" aria-label="Приблизить"><svg class="icon"><use href="#i-plus"/></svg></button>
+          <span class="zoom__divider"></span>
+          <button class="zoom" aria-label="Отдалить"><svg class="icon"><use href="#i-minus"/></svg></button>
+        </div>
+
+        <div class="sheet sheet--peek" id="nearby-sheet">
+          <div class="sheet__handle"></div>
+          <div class="sheet__head">
+            <h2 class="title-large">Рядом с вами</h2>
+            <button class="text-btn">Все</button>
+          </div>
+
+          <ul class="place-list">
+            <li class="place-row">
+              <span class="poi poi--cafe"><svg class="icon"><use href="#i-coffee"/></svg></span>
+              <span class="place-row__text">
+                <span class="place-row__name">Кофемания</span>
+                <span class="place-row__meta">Кафе · 320 м · <b class="open">Открыто</b></span>
+              </span>
+              <span class="rating"><svg class="icon icon--16"><use href="#i-star"/></svg>4,6</span>
+            </li>
+            <li class="place-row">
+              <span class="poi poi--food"><svg class="icon"><use href="#i-restaurant"/></svg></span>
+              <span class="place-row__text">
+                <span class="place-row__name">Столовая №1</span>
+                <span class="place-row__meta">Обед · 540 м · <b class="open">Открыто</b></span>
+              </span>
+              <span class="rating"><svg class="icon icon--16"><use href="#i-star"/></svg>4,4</span>
+            </li>
+            <li class="place-row">
+              <span class="poi poi--park"><svg class="icon"><use href="#i-park"/></svg></span>
+              <span class="place-row__text">
+                <span class="place-row__name">Патриаршие пруды</span>
+                <span class="place-row__meta">Парк · 760 м · <b>Круглосуточно</b></span>
+              </span>
+              <span class="rating"><svg class="icon icon--16"><use href="#i-star"/></svg>4,8</span>
+            </li>
+          </ul>
+
+          <nav class="nav-bar" aria-label="Основная навигация">
+            <button class="nav-item is-active"><svg class="icon"><use href="#i-map"/></svg><span>Карта</span></button>
+            <button class="nav-item" data-go="search"><svg class="icon"><use href="#i-search"/></svg><span>Поиск</span></button>
+            <button class="nav-item" data-go="nav"><svg class="icon"><use href="#i-route"/></svg><span>Маршрут</span></button>
+            <button class="nav-item"><svg class="icon"><use href="#i-bookmark"/></svg><span>Метки</span></button>
+            <button class="nav-item" data-go="settings"><svg class="icon"><use href="#i-settings"/></svg><span>Ещё</span></button>
+          </nav>
+        </div>
+      </section>
+
+      <!-- ═══ 2. Navigation ════════════════════════════════════ -->
+      <section class="screen" data-screen="nav" aria-label="Навигация">
+        <div class="map-canvas is-navigating" data-route="on"></div>
+
+        <div class="statusbar statusbar--dark">
+          <span class="statusbar__time">9:41</span>
+          <span class="statusbar__icons">
+            <svg class="icon icon--18"><use href="#i-signal"/></svg>
+            <svg class="icon icon--18"><use href="#i-wifi"/></svg>
+            <svg class="icon icon--18"><use href="#i-battery"/></svg>
+          </span>
+        </div>
+
+        <div class="maneuver">
+          <span class="maneuver__icon"><svg class="icon icon--32"><use href="#i-arrow-turn-right"/></svg></span>
+          <div class="maneuver__text">
+            <span class="maneuver__distance">Через 200 м</span>
+            <span class="maneuver__instruction">поверните направо на Тверскую</span>
+          </div>
+          <span class="maneuver__next">
+            <span>затем</span>
+            <svg class="icon icon--20"><use href="#i-arrow-turn-left"/></svg>
+          </span>
+        </div>
+
+        <div class="nav-badges">
+          <span class="badge badge--surface"><svg class="icon icon--18"><use href="#i-clock"/></svg>9:52</span>
+          <span class="badge badge--speed">47<span>км/ч</span></span>
+          <button class="fab fab--small fab--tonal" aria-label="Звук навигации"><svg class="icon"><use href="#i-compass"/></svg></button>
+        </div>
+
+        <div class="sheet sheet--expanded">
+          <div class="sheet__handle"></div>
+
+          <div class="eta">
+            <div>
+              <p class="eta__value">12 мин</p>
+              <p class="eta__sub">4,2 км · прибытие в 9:53</p>
+            </div>
+            <button class="icon-btn icon-btn--filled" aria-label="Завершить маршрут"><svg class="icon"><use href="#i-close"/></svg></button>
+          </div>
+
+          <div class="segmented" role="tablist">
+            <button role="tab" class="is-active"><svg class="icon icon--18"><use href="#i-car"/></svg>Авто</button>
+            <button role="tab"><svg class="icon icon--18"><use href="#i-bike"/></svg>Вело</button>
+            <button role="tab"><svg class="icon icon--18"><use href="#i-walk"/></svg>Пешком</button>
+            <button role="tab"><svg class="icon icon--18"><use href="#i-transit"/></svg>Транспорт</button>
+          </div>
+
+          <ul class="alt-list">
+            <li class="alt-row is-selected">
+              <span class="alt-row__main"><b>4,2 км</b><span>12 мин</span></span>
+              <span class="alt-row__tag">без пробок</span>
+              <span class="alt-row__note">+0 ₽</span>
+            </li>
+            <li class="alt-row">
+              <span class="alt-row__main"><b>5,6 км</b><span>17 мин</span></span>
+              <span class="alt-row__tag">через центр</span>
+            </li>
+            <li class="alt-row">
+              <span class="alt-row__main"><b>3,9 км</b><span>19 мин</span></span>
+              <span class="alt-row__tag">пробки</span>
+            </li>
+          </ul>
+
+          <div class="row-actions">
+            <button class="btn btn--tonal"><svg class="icon icon--18"><use href="#i-download"/></svg>Офлайн-карта</button>
+            <button class="btn btn--text"><svg class="icon icon--18"><use href="#i-share"/></svg>Поделиться</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ 3. Search ════════════════════════════════════════ -->
+      <section class="screen" data-screen="search" aria-label="Поиск">
+        <div class="statusbar">
+          <span class="statusbar__time">9:41</span>
+          <span class="statusbar__icons">
+            <svg class="icon icon--18"><use href="#i-signal"/></svg>
+            <svg class="icon icon--18"><use href="#i-wifi"/></svg>
+            <svg class="icon icon--18"><use href="#i-battery"/></svg>
+          </span>
+        </div>
+
+        <div class="app-bar">
+          <button class="icon-btn" data-go="map" aria-label="Назад"><svg class="icon"><use href="#i-back"/></svg></button>
+          <div class="search-field is-focused">
+            <svg class="icon"><use href="#i-search"/></svg>
+            <input value="кофе" aria-label="Поисковый запрос" type="search">
+            <button class="icon-btn icon-btn--dense" aria-label="Очистить"><svg class="icon icon--20"><use href="#i-close"/></svg></button>
+          </div>
+        </div>
+
+        <div class="chips chips--static">
+          <button class="chip is-selected"><svg class="icon icon--18"><use href="#i-clock"/></svg>Открыто</button>
+          <button class="chip"><svg class="icon icon--18"><use href="#i-pin"/></svg>Рядом</button>
+          <button class="chip"><svg class="icon icon--18"><use href="#i-star"/></svg>4,5+</button>
+          <button class="chip"><svg class="icon icon--18"><use href="#i-coffee"/></svg>Спешелти</button>
+        </div>
+
+        <div class="scroll-area">
+          <p class="section-label">Лучший результат</p>
+          <button class="result-card" data-go="place">
+            <span class="result-card__media result-card__media--cafe">
+              <svg class="icon icon--32"><use href="#i-coffee"/></svg>
+            </span>
+            <span class="result-card__body">
+              <span class="result-card__title">Кофемания</span>
+              <span class="result-card__meta">Кафе · Тверская ул., 8</span>
+              <span class="result-card__tags"><b class="open">Открыто до 23:00</b> · 320 м · 4,6 ★</span>
+            </span>
+            <span class="result-card__action">
+              <span class="icon-btn icon-btn--filled"><svg class="icon"><use href="#i-route"/></svg></span>
+            </span>
+          </button>
+
+          <p class="section-label">Ещё 14 мест</p>
+          <ul class="result-list">
+            <li class="result-row">
+              <span class="poi poi--cafe"><svg class="icon"><use href="#i-coffee"/></svg></span>
+              <span class="result-row__text"><b>Surf Coffee</b><span>Кофейня · 480 м · 4,7 ★</span></span>
+              <svg class="icon icon--20 chevron"><use href="#i-chevron"/></svg>
+            </li>
+            <li class="result-row">
+              <span class="poi poi--cafe"><svg class="icon"><use href="#i-coffee"/></svg></span>
+              <span class="result-row__text"><b>Шоколадница</b><span>Кафе · 610 м · 4,2 ★</span></span>
+              <svg class="icon icon--20 chevron"><use href="#i-chevron"/></svg>
+            </li>
+            <li class="result-row">
+              <span class="poi poi--food"><svg class="icon"><use href="#i-restaurant"/></svg></span>
+              <span class="result-row__text"><b>Cofix</b><span>Кофейня · 700 м · 4,5 ★</span></span>
+              <svg class="icon icon--20 chevron"><use href="#i-chevron"/></svg>
+            </li>
+            <li class="result-row">
+              <span class="poi poi--cafe"><svg class="icon"><use href="#i-coffee"/></svg></span>
+              <span class="result-row__text"><b>Double B</b><span>Кофейня · 820 м · 4,8 ★</span></span>
+              <svg class="icon icon--20 chevron"><use href="#i-chevron"/></svg>
+            </li>
+          </ul>
+        </div>
+
+        <nav class="nav-bar" aria-label="Основная навигация">
+          <button class="nav-item" data-go="map"><svg class="icon"><use href="#i-map"/></svg><span>Карта</span></button>
+          <button class="nav-item is-active"><svg class="icon"><use href="#i-search"/></svg><span>Поиск</span></button>
+          <button class="nav-item" data-go="nav"><svg class="icon"><use href="#i-route"/></svg><span>Маршрут</span></button>
+          <button class="nav-item"><svg class="icon"><use href="#i-bookmark"/></svg><span>Метки</span></button>
+          <button class="nav-item" data-go="settings"><svg class="icon"><use href="#i-settings"/></svg><span>Ещё</span></button>
+        </nav>
+      </section>
+
+      <!-- ═══ 4. Place ═════════════════════════════════════════ -->
+      <section class="screen" data-screen="place" aria-label="Карточка места">
+        <div class="hero">
+          <div class="hero__map"><div class="map-canvas" data-route="off"></div></div>
+        </div>
+
+        <div class="statusbar statusbar--light">
+          <span class="statusbar__time">9:41</span>
+          <span class="statusbar__icons">
+            <svg class="icon icon--18"><use href="#i-signal"/></svg>
+            <svg class="icon icon--18"><use href="#i-wifi"/></svg>
+            <svg class="icon icon--18"><use href="#i-battery"/></svg>
+          </span>
+        </div>
+
+        <div class="hero-actions">
+          <button class="icon-btn icon-btn--surface" data-go="search" aria-label="Назад"><svg class="icon"><use href="#i-back"/></svg></button>
+          <div class="hero-actions__right">
+            <button class="icon-btn icon-btn--surface" aria-label="Поделиться"><svg class="icon"><use href="#i-share"/></svg></button>
+            <button class="icon-btn icon-btn--surface" aria-label="Сохранить"><svg class="icon"><use href="#i-bookmark"/></svg></button>
+          </div>
+        </div>
+
+        <div class="sheet sheet--cover">
+          <div class="sheet__handle"></div>
+
+          <div class="place-head">
+            <h2 class="headline-small">Кофемания</h2>
+            <p class="place-head__meta">
+              <span>Кафе</span><span class="dot">·</span>
+              <span class="rating"><svg class="icon icon--16"><use href="#i-star"/></svg>4,6 <span class="muted">(320)</span></span>
+              <span class="dot">·</span>
+              <b class="open">Открыто до 23:00</b>
+            </p>
+          </div>
+
+          <div class="quick-actions">
+            <button class="quick" data-go="nav">
+              <span class="quick__icon quick__icon--filled"><svg class="icon"><use href="#i-route"/></svg></span>
+              <span>Маршрут</span>
+            </button>
+            <button class="quick">
+              <span class="quick__icon"><svg class="icon"><use href="#i-phone"/></svg></span>
+              <span>Позвонить</span>
+            </button>
+            <button class="quick">
+              <span class="quick__icon"><svg class="icon"><use href="#i-bookmark"/></svg></span>
+              <span>Сохранить</span>
+            </button>
+            <button class="quick">
+              <span class="quick__icon"><svg class="icon"><use href="#i-share"/></svg></span>
+              <span>Поделиться</span>
+            </button>
+          </div>
+
+          <div class="info-card">
+            <div class="info-row"><svg class="icon"><use href="#i-pin"/></svg><span>Тверская ул., 8, Москва</span><span class="info-row__trail">320 м</span></div>
+            <div class="info-row"><svg class="icon"><use href="#i-clock"/></svg><span>Ежедневно, 8:00 – 23:00</span></div>
+            <div class="info-row"><svg class="icon"><use href="#i-globe"/></svg><span>coffeemania.ru</span></div>
+            <div class="info-row"><svg class="icon"><use href="#i-phone"/></svg><span>+7 495 123-45-67</span></div>
+          </div>
+
+          <p class="review">
+            «Лучший флэт уайт в центре, есть розетки и тихий зал на втором этаже.»
+            <span class="review__author">Анна, 2 дня назад</span>
+          </p>
+
+          <div class="sticky-cta">
+            <button class="btn btn--filled btn--full" data-go="nav">
+              <svg class="icon icon--20"><use href="#i-route"/></svg>Построить маршрут
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ 5. Settings ══════════════════════════════════════ -->
+      <section class="screen" data-screen="settings" aria-label="Настройки">
+        <div class="statusbar">
+          <span class="statusbar__time">9:41</span>
+          <span class="statusbar__icons">
+            <svg class="icon icon--18"><use href="#i-signal"/></svg>
+            <svg class="icon icon--18"><use href="#i-wifi"/></svg>
+            <svg class="icon icon--18"><use href="#i-battery"/></svg>
+          </span>
+        </div>
+
+        <div class="app-bar app-bar--large">
+          <div class="app-bar__row">
+            <button class="icon-btn" data-go="map" aria-label="Назад"><svg class="icon"><use href="#i-back"/></svg></button>
+            <button class="icon-btn" aria-label="Поиск в настройках"><svg class="icon"><use href="#i-search"/></svg></button>
+          </div>
+          <h2 class="headline-medium">Настройки</h2>
+        </div>
+
+        <div class="scroll-area">
+          <p class="section-label">Внешний вид</p>
+          <div class="card">
+            <div class="segmented segmented--three">
+              <button><svg class="icon icon--18"><use href="#i-sun"/></svg>Светлая</button>
+              <button class="is-active"><svg class="icon icon--18"><use href="#i-moon"/></svg>Тёмная</button>
+              <button>Системная</button>
+            </div>
+            <div class="setting">
+              <span class="setting__text"><b>Крупный шрифт на карте</b><span>Названия улиц и POI</span></span>
+              <button class="switch is-on" role="switch" aria-checked="true"></button>
+            </div>
+          </div>
+
+          <p class="section-label">Карты</p>
+          <div class="card">
+            <button class="setting setting--nav">
+              <span class="poi poi--park"><svg class="icon"><use href="#i-download"/></svg></span>
+              <span class="setting__text"><b>Скачанные регионы</b><span>Москва и область · 412 МБ</span></span>
+              <span class="progress-ring" style="--value:72"></span>
+            </button>
+            <button class="setting setting--nav">
+              <span class="poi poi--water"><svg class="icon"><use href="#i-layers"/></svg></span>
+              <span class="setting__text"><b>Слои карты</b><span>Рельеф, пробки, велодорожки</span></span>
+              <svg class="icon icon--20 chevron"><use href="#i-chevron"/></svg>
+            </button>
+            <div class="setting">
+              <span class="setting__text"><b>Автообновление карт</b><span>Только по Wi-Fi</span></span>
+              <button class="switch is-on" role="switch" aria-checked="true"></button>
+            </div>
+          </div>
+
+          <p class="section-label">Навигация</p>
+          <div class="card">
+            <div class="setting">
+              <span class="setting__text"><b>Избегать платных дорог</b></span>
+              <button class="switch" role="switch" aria-checked="false"></button>
+            </div>
+            <div class="setting">
+              <span class="setting__text"><b>Голосовые подсказки</b><span>Русский</span></span>
+              <button class="switch is-on" role="switch" aria-checked="true"></button>
+            </div>
+          </div>
+
+          <p class="section-label">Приватность</p>
+          <div class="card">
+            <div class="setting">
+              <span class="poi poi--privacy"><svg class="icon"><use href="#i-shield"/></svg></span>
+              <span class="setting__text"><b>Без трекеров</b><span>Аналитика выключена полностью</span></span>
+              <span class="badge badge--tonal">Вкл</span>
+            </div>
+            <div class="setting">
+              <span class="setting__text"><b>История поиска</b><span>Хранится только на устройстве</span></span>
+              <button class="switch is-on" role="switch" aria-checked="true"></button>
+            </div>
+          </div>
+
+          <p class="section-label">О приложении</p>
+          <div class="card card--list">
+            <button class="setting setting--nav"><span class="setting__text"><b>Версия</b></span><span class="muted">2026.11 · MD3</span></button>
+            <button class="setting setting--nav"><span class="setting__text"><b>Помочь проекту</b></span><svg class="icon icon--20 chevron"><use href="#i-chevron"/></svg></button>
+          </div>
+        </div>
+
+        <nav class="nav-bar" aria-label="Основная навигация">
+          <button class="nav-item" data-go="map"><svg class="icon"><use href="#i-map"/></svg><span>Карта</span></button>
+          <button class="nav-item" data-go="search"><svg class="icon"><use href="#i-search"/></svg><span>Поиск</span></button>
+          <button class="nav-item" data-go="nav"><svg class="icon"><use href="#i-route"/></svg><span>Маршрут</span></button>
+          <button class="nav-item" data-go="place"><svg class="icon"><use href="#i-bookmark"/></svg><span>Метки</span></button>
+          <button class="nav-item is-active"><svg class="icon"><use href="#i-settings"/></svg><span>Ещё</span></button>
+        </nav>
+      </section>
+    </div>
+  </main>
+</div>
+
+<!-- ── Shared map artwork ───────────────────────────────────── -->
+<template id="map-template">
+  <svg class="map" viewBox="0 0 412 892" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <rect width="412" height="892" fill="var(--md-surface-container-low)"/>
+
+    <!-- parks & water -->
+    <path d="M250 40h180v210c-40 12-88 6-124-18-38-25-58-64-56-106Z" fill="var(--map-park)"/>
+    <path d="M-20 520c60-26 120-10 170 22 46 30 96 38 152 12 42-20 84-18 130 4v80c-48-24-92-26-136-6-54 26-106 18-152-12-48-32-104-48-164-22Z" fill="var(--map-water)" opacity=".9"/>
+    <path d="M24 250c40-30 96-30 132 4 30 28 22 74-14 92-40 20-88 8-112-26-20-28-18-54-6-70Z" fill="var(--map-park)" opacity=".85"/>
+    <rect x="286" y="300" width="126" height="96" rx="14" fill="var(--map-park)" opacity=".7"/>
+
+    <!-- building blocks -->
+    <g fill="var(--map-building)">
+      <rect x="40" y="66" width="46" height="38" rx="3"/><rect x="92" y="66" width="38" height="52" rx="3"/>
+      <rect x="136" y="60" width="52" height="38" rx="3"/><rect x="140" y="106" width="40" height="44" rx="3"/>
+      <rect x="34" y="150" width="58" height="30" rx="3"/><rect x="104" y="146" width="34" height="34" rx="3"/>
+      <rect x="198" y="72" width="40" height="40" rx="3"/><rect x="200" y="122" width="44" height="26" rx="3"/>
+      <rect x="60" y="360" width="60" height="40" rx="3"/><rect x="132" y="356" width="42" height="48" rx="3"/>
+      <rect x="186" y="360" width="52" height="34" rx="3"/><rect x="48" y="418" width="44" height="46" rx="3"/>
+      <rect x="106" y="420" width="62" height="38" rx="3"/><rect x="180" y="412" width="34" height="52" rx="3"/>
+      <rect x="262" y="420" width="52" height="38" rx="3"/><rect x="330" y="416" width="48" height="46" rx="3"/>
+      <rect x="42" y="660" width="52" height="48" rx="3"/><rect x="108" y="656" width="40" height="52" rx="3"/>
+      <rect x="162" y="662" width="56" height="42" rx="3"/><rect x="262" y="660" width="46" height="50" rx="3"/>
+      <rect x="318" y="652" width="58" height="42" rx="3"/><rect x="56" y="790" width="44" height="40" rx="3"/>
+      <rect x="112" y="786" width="58" height="46" rx="3"/><rect x="300" y="786" width="60" height="44" rx="3"/>
+    </g>
+
+    <!-- streets: casing -->
+    <g fill="none" stroke="var(--map-road-casing)" stroke-linecap="round">
+      <path d="M-10 176h432" stroke-width="14"/><path d="M-10 344h432" stroke-width="10"/>
+      <path d="M-10 500h432" stroke-width="14"/><path d="M-10 736h432" stroke-width="10"/>
+      <path d="M-10 830h432" stroke-width="8"/>
+      <path d="M66-10v912" stroke-width="14"/><path d="M214-10v912" stroke-width="10"/>
+      <path d="M356-10v912" stroke-width="12"/>
+      <path d="M-10 900C90 860 150 800 250 760s120-90 180-120" stroke-width="18"/>
+    </g>
+
+    <!-- streets: fill -->
+    <g fill="none" stroke="var(--map-road-fill)" stroke-linecap="round">
+      <path d="M-10 176h432" stroke-width="10"/><path d="M-10 344h432" stroke-width="7"/>
+      <path d="M-10 500h432" stroke-width="10"/><path d="M-10 736h432" stroke-width="7"/>
+      <path d="M-10 830h432" stroke-width="5"/>
+      <path d="M66-10v912" stroke-width="10"/><path d="M214-10v912" stroke-width="7"/>
+      <path d="M356-10v912" stroke-width="8"/>
+      <path d="M-10 900C90 860 150 800 250 760s120-90 180-120" stroke-width="13" stroke="var(--map-highway-fill)"/>
+    </g>
+
+    <!-- labels -->
+    <g class="map-labels" fill="var(--map-label)" font-family="Roboto, sans-serif">
+      <text x="92" y="196" font-size="11" transform="rotate(-90 92 196)">Тверская ул.</text>
+      <text x="240" y="330" font-size="11">Столешников пер.</text>
+      <text x="268" y="246" font-size="12" fill="currentColor" opacity=".85">Патриаршие пруды</text>
+      <text x="120" y="566" font-size="11">Москва-река</text>
+      <text x="30" y="620" font-size="11">Берсеневская наб.</text>
+    </g>
+
+    <!-- POI dots -->
+    <g>
+      <circle cx="150" cy="300" r="5" fill="var(--md-tertiary)"/>
+      <circle cx="286" cy="466" r="5" fill="var(--md-error)"/>
+      <circle cx="322" cy="700" r="5" fill="var(--md-secondary)"/>
+      <circle cx="118" cy="742" r="5" fill="var(--md-tertiary)"/>
+    </g>
+
+    <!-- route -->
+    <g class="route" opacity="0">
+      <path d="M198 760V500h158V176" fill="none" stroke="var(--map-route)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" opacity=".18"/>
+      <path d="M198 760V500h158V176" fill="none" stroke="var(--map-route)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="198" cy="760" r="9" fill="var(--map-route)" stroke="var(--md-surface-container-lowest)" stroke-width="3"/>
+    </g>
+
+    <!-- user location -->
+    <g class="user-dot">
+      <circle cx="198" cy="760" r="26" fill="var(--md-primary)" opacity=".14"/>
+      <circle cx="198" cy="760" r="13" fill="var(--md-primary)" opacity=".22"/>
+      <circle cx="198" cy="760" r="7" fill="var(--md-primary)" stroke="var(--md-surface-container-lowest)" stroke-width="2.5"/>
+    </g>
+  </svg>
+</template>
+
+<script src="app.js"></script>
+</body>
+</html>
