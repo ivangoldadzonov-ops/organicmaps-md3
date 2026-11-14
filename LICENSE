@@ -1,0 +1,45 @@
+Copyright (c) 2026 Organic Maps MD3 redesign contributors
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+--------------------------------------------------------------------------
+
+The canonical and legally binding text of the Apache License, Version 2.0 is
+the one published at the URL above. This file intentionally does not restate
+it; use the canonical text when redistributing.
+
+--------------------------------------------------------------------------
+
+Attribution for forks and derivative works based on this design
+------------------------------------------------------------------
+
+If you use this design (tokens, specifications, prototype or interface
+assets) in your project — or in a fork of Organic Maps — include a visible,
+human-readable mention of the "Organic Maps Project" together with a
+clickable link to https://organicmaps.app. The notice should appear in
+user-visible locations such as the product's "About" and "Main Menu"
+screens.
+
+This mirrors the attribution requirement of the Organic Maps project itself
+and applies to any derivative application built with these materials.
+
+--------------------------------------------------------------------------
+
+Map data
+---------
+
+No map data (.mwm files), tiles or other binary geographic datasets are
+distributed in this repository. The map styling values included here are
+design tokens only. The data itself is licensed separately by the
+OpenStreetMap Foundation and by the Organic Maps project; see
+DATA_LICENSE.txt in the main Organic Maps repository.
