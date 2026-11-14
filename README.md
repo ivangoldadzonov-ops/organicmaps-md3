@@ -53,7 +53,7 @@ powershell -ExecutionPolicy Bypass -File tools/serve.ps1
 - `?view=all` — режим «Все экраны»;
 - `#map`, `#nav`, `#search`, `#place`, `#settings` — прямой переход на экран.
 
-Живая версия: <https://ivangoldadzonov-ops.github.io/organicmaps-md3/>.
+Живая версия (после включения Pages в Settings → Pages, источник — ветка `main`, папка `/`): <https://ivangoldadzonov-ops.github.io/organicmaps-md3/>.
 
 ## Экраны
 
