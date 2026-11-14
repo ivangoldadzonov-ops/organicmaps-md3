@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Organic Maps MD3 colors — dark scheme.
+     Source of truth: tokens/tokens.json. Generated file: do not edit by hand. -->
+<resources>
+
+    <!-- Material Design 3 color roles -->
+    <color name="md3_primary">#8BD6A5</color>
+    <color name="md3_on_primary">#003920</color>
+    <color name="md3_primary_container">#00522F</color>
+    <color name="md3_on_primary_container">#A6F2C1</color>
+    <color name="md3_secondary">#B4CCBA</color>
+    <color name="md3_on_secondary">#203528</color>
+    <color name="md3_secondary_container">#364B3D</color>
+    <color name="md3_on_secondary_container">#D0E8D6</color>
+    <color name="md3_tertiary">#A2CDDC</color>
+    <color name="md3_on_tertiary">#033541</color>
+    <color name="md3_tertiary_container">#214C58</color>
+    <color name="md3_on_tertiary_container">#BEEAF8</color>
+    <color name="md3_error">#FFB4AB</color>
+    <color name="md3_on_error">#690005</color>
+    <color name="md3_error_container">#93000A</color>
+    <color name="md3_on_error_container">#FFDAD6</color>
+    <color name="md3_surface">#0F1511</color>
+    <color name="md3_on_surface">#DFE4DE</color>
+    <color name="md3_surface_variant">#414942</color>
+    <color name="md3_on_surface_variant">#C0C9C0</color>
+    <color name="md3_surface_dim">#0F1511</color>
+    <color name="md3_surface_bright">#353B36</color>
+    <color name="md3_surface_container_lowest">#0A0F0C</color>
+    <color name="md3_surface_container_low">#171D18</color>
+    <color name="md3_surface_container">#1B211C</color>
+    <color name="md3_surface_container_high">#252B26</color>
+    <color name="md3_surface_container_highest">#303631</color>
+    <color name="md3_outline">#8A938B</color>
+    <color name="md3_outline_variant">#414942</color>
+    <color name="md3_inverse_surface">#DFE4DE</color>
+    <color name="md3_inverse_on_surface">#2E312E</color>
+    <color name="md3_inverse_primary">#146C43</color>
+    <color name="md3_scrim">#000000</color>
+    <color name="md3_shadow">#000000</color>
+
+    <!-- Map renderer symbols -->
+    <color name="map_park">#1E3524</color>
+    <color name="map_water">#12405A</color>
+    <color name="map_building">#262B27</color>
+    <color name="map_road_casing">#2C322E</color>
+    <color name="map_road_fill">#3A413B</color>
+    <color name="map_highway_fill">#5A4522</color>
+    <color name="map_label">#B9C2B9</color>
+    <color name="map_route">#8BD6A5</color>
+</resources>

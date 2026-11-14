@@ -772,6 +772,8 @@ body.all-screens .device { display: none; }
   justify-content: center;
   padding: 8px 0 48px;
 }
+/* `display` on .frames overrides the UA rule for the hidden attribute. */
+.frames[hidden] { display: none; }
 .frame { display: flex; flex-direction: column; gap: 12px; align-items: center; }
 .frame__label { font-size: var(--md-label-large-size); font-weight: 500; color: var(--md-on-surface-variant); }
 .frame__device {

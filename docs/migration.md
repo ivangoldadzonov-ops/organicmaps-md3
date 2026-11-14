@@ -20,6 +20,32 @@
 
 Риск: кастомные вьюхи карты рисуют элементы своим кодом. Их палитра вынесена в `MapSymbols` и меняется отдельным коммитом.
 
+### XML-ресурсы для старых экранов
+
+Экраны на XML/Views могут использовать те же токены, что и Compose, без ожидания полной миграции:
+
+- `android/app/src/main/res/values/colors.xml` — светлая схема;
+- `android/app/src/main/res/values-night/colors.xml` — тёмная схема (Android выбирает её автоматически по системной теме).
+
+Роли MD3 названы с префиксом `md3_` (`md3_primary`, `md3_on_surface`, `md3_surface_container_high`), цвета карты — с префиксом `map_` (`map_park`, `map_water`, `map_road_fill`, `map_route`). Оба файла являются зеркалом `tokens/tokens.json`.
+
+```xml
+<!-- layout -->
+<TextView
+    android:textColor="@color/md3_on_surface"
+    android:background="@color/md3_surface_container" />
+```
+
+```kotlin
+// Views / XML-экраны
+val primary = ContextCompat.getColor(context, R.color.md3_primary)
+
+// Compose рядом с XML-экранами
+val primary = colorResource(R.color.md3_primary)
+```
+
+Можно продолжать использовать `MaterialTheme.colorScheme` в Compose и `@color/md3_*` в XML одновременно: значения совпадают, поэтому миграция идёт экран за экраном. Hex-значения в layout и drawable не хардкодим; при изменении `tokens/tokens.json` синхронизируем оба XML-файла и `Color.kt`.
+
 ## Этап 2. Android — навигация и нижний лист (2 недели)
 
 1. Ввести `BottomNavigationView` с 5 пунктами и индикатором-пилюлей (`app:itemActiveIndicatorStyle`).
