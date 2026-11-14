@@ -191,6 +191,22 @@
 
   applyTheme(localStorage.getItem(STORAGE_KEY) || "light", false);
 
+  /* ── Map layers ────────────────────────────────────────────── */
+  const layersBtn = document.getElementById("toggle-layers");
+  const layerChips = document.getElementById("layer-chips");
+
+  function toggleLayers(force) {
+    const open = typeof force === "boolean" ? force : !layerChips.classList.contains("is-open");
+    layerChips.classList.toggle("is-open", open);
+    layerChips.setAttribute("aria-hidden", String(!open));
+    layersBtn.classList.toggle("is-on", open);
+    layersBtn.setAttribute("aria-expanded", String(open));
+  }
+
+  if (layersBtn && layerChips) {
+    layersBtn.addEventListener("click", () => toggleLayers());
+  }
+
   /* ── Bottom sheets ─────────────────────────────────────────── */
   function toggleSheet(sheet) {
     const collapsed = sheet.classList.toggle("is-collapsed");
@@ -239,6 +255,7 @@
       const rect = target.getBoundingClientRect();
       const size = Math.max(rect.width, rect.height) * 2.2;
       target.classList.add("md-ripple-host");
+      if (getComputedStyle(target).position === "static") target.style.position = "relative";
       const ripple = document.createElement("span");
       ripple.className = "md-ripple";
       ripple.style.width = size + "px";

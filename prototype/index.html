@@ -45,6 +45,7 @@
   <symbol id="i-fuel" viewBox="0 0 24 24"><path d="M5 21V4.6A1.6 1.6 0 0 1 6.6 3h5A1.6 1.6 0 0 1 13.2 4.6V21"/><path d="M3.6 21h11M5.8 9h7.6"/><path d="M13.2 8.4h2.6a2 2 0 0 1 2 2v6.2a1.8 1.8 0 0 0 3.6 0V9.6l-2.6-3.2"/></symbol>
   <symbol id="i-pharmacy" viewBox="0 0 24 24"><rect x="3.6" y="3.6" width="16.8" height="16.8" rx="3"/><path d="M12 7.6v8.8M7.6 12h8.8"/></symbol>
   <symbol id="i-park" viewBox="0 0 24 24"><path d="M12 3 6.4 12h11L12 3Z"/><path d="M12 9.6 6.8 18h10.4L12 9.6Z"/><path d="M12 18v3.2"/></symbol>
+  <symbol id="i-terrain" viewBox="0 0 24 24"><path d="M3 19 9.4 7l4.2 7.6L16.4 11 21 19H3Z"/><path d="m7.6 10.8 1.8 1.4 1.8-1.4"/></symbol>
   <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.4"/><path d="M12 2.4v2.2M12 19.4v2.2M2.4 12h2.2M19.4 12h2.2M5.2 5.2l1.6 1.6M17.2 17.2l1.6 1.6M18.8 5.2l-1.6 1.6M6.8 17.2l-1.6 1.6"/></symbol>
   <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.4A8.4 8.4 0 0 1 9.6 4a8.6 8.6 0 1 0 10.4 10.4Z"/></symbol>
   <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3.6" y="3.6" width="7" height="7" rx="1.4"/><rect x="13.4" y="3.6" width="7" height="7" rx="1.4"/><rect x="3.6" y="13.4" width="7" height="7" rx="1.4"/><rect x="13.4" y="13.4" width="7" height="7" rx="1.4"/></symbol>
@@ -109,11 +110,21 @@
         </div>
 
         <div class="map-top">
-          <button class="search-bar" type="button" data-go="search">
-            <svg class="icon"><use href="#i-menu"/></svg>
-            <span class="search-bar__label">Поиск мест и адресов</span>
-            <span class="avatar" aria-hidden="true">И</span>
-          </button>
+          <div class="search-row">
+            <button class="search-bar" type="button" data-go="search">
+              <svg class="icon"><use href="#i-menu"/></svg>
+              <span class="search-bar__label">Поиск мест и адресов</span>
+            </button>
+            <button class="icon-btn icon-btn--dense layers-btn" id="toggle-layers" type="button" title="Слои карты" aria-label="Слои карты" aria-expanded="false" aria-controls="layer-chips">
+              <svg class="icon"><use href="#i-layers"/></svg>
+            </button>
+          </div>
+
+          <div class="chips chips--layers" id="layer-chips" aria-hidden="true">
+            <button class="chip"><svg class="icon icon--18"><use href="#i-terrain"/></svg>Рельеф</button>
+            <button class="chip"><svg class="icon icon--18"><use href="#i-bike"/></svg>Велодорожки</button>
+            <button class="chip"><svg class="icon icon--18"><use href="#i-transit"/></svg>Метро</button>
+          </div>
 
           <div class="chips chips--floating">
             <button class="chip is-selected"><svg class="icon icon--18"><use href="#i-restaurant"/></svg>Еда</button>
@@ -452,6 +463,11 @@
             <button class="setting setting--nav">
               <span class="poi poi--water"><svg class="icon"><use href="#i-layers"/></svg></span>
               <span class="setting__text"><b>Слои карты</b><span>Рельеф, пробки, велодорожки</span></span>
+              <svg class="icon icon--20 chevron"><use href="#i-chevron"/></svg>
+            </button>
+            <button class="setting setting--nav">
+              <span class="poi poi--privacy"><svg class="icon"><use href="#i-globe"/></svg></span>
+              <span class="setting__text"><b>Профиль OpenStreetMap</b><span>Только для редактирования карты · Не подключён</span></span>
               <svg class="icon icon--20 chevron"><use href="#i-chevron"/></svg>
             </button>
             <div class="setting">
