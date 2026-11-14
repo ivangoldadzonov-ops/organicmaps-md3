@@ -1,0 +1,28 @@
+# Organic Maps MD3 redesign
+
+This repository contains a Material Design 3 redesign of the Organic Maps
+interface: design tokens, component specifications, an interactive prototype
+and platform-specific token implementations.
+
+Organic Maps is a free and open-source offline maps application powered by
+OpenStreetMap data — https://organicmaps.app
+
+## Attribution
+
+If you use this design in a product, please credit the Organic Maps
+Project with a visible mention and a link to https://organicmaps.app
+
+## Third-party components
+
+- Design tokens follow the Material Design 3 specification by Google LLC,
+  published under Apache License 2.0.
+- The type family referenced by the design is Inter (SIL Open Font License).
+  The prototype loads Inter from Google Fonts; no font binaries are
+  redistributed in this repository.
+- Map geometry in the prototype is procedurally generated for illustration
+  only and is not derived from OpenStreetMap data.
+
+## Trademarks
+
+Organic Maps and MapsWithMe are the property of their respective owners.
+This repository is an unaffiliated community design proposal.
