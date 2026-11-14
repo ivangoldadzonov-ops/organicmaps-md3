@@ -107,6 +107,12 @@
   --md-duration-long2: 500ms;
   --md-duration-extra-long4: 1000ms;
 
+  /* MD3 system motion tokens (used by the interactive prototype) */
+  --md-sys-motion-easing-emphasized: cubic-bezier(0.2, 0.0, 0, 1.0);
+  --md-sys-motion-easing-standard: cubic-bezier(0.2, 0.0, 0, 1.0);
+  --md-sys-motion-duration-short: 200ms;
+  --md-sys-motion-duration-medium: 350ms;
+
   /* Layout */
   --md-margin-mobile: 16px;
   --md-gutter: 8px;

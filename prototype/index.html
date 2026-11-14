@@ -141,7 +141,7 @@
           <button class="zoom" aria-label="Отдалить"><svg class="icon"><use href="#i-minus"/></svg></button>
         </div>
 
-        <div class="sheet sheet--peek" id="nearby-sheet">
+        <div class="sheet sheet--peek" id="nearby-sheet" data-collapsible>
           <div class="sheet__handle"></div>
           <div class="sheet__head">
             <h2 class="title-large">Рядом с вами</h2>
@@ -176,7 +176,7 @@
           </ul>
 
           <nav class="nav-bar" aria-label="Основная навигация">
-            <button class="nav-item is-active"><svg class="icon"><use href="#i-map"/></svg><span>Карта</span></button>
+            <button class="nav-item is-active" data-go="map"><svg class="icon"><use href="#i-map"/></svg><span>Карта</span></button>
             <button class="nav-item" data-go="search"><svg class="icon"><use href="#i-search"/></svg><span>Поиск</span></button>
             <button class="nav-item" data-go="nav"><svg class="icon"><use href="#i-route"/></svg><span>Маршрут</span></button>
             <button class="nav-item"><svg class="icon"><use href="#i-bookmark"/></svg><span>Метки</span></button>
@@ -216,7 +216,7 @@
           <button class="fab fab--small fab--tonal" aria-label="Звук навигации"><svg class="icon"><use href="#i-compass"/></svg></button>
         </div>
 
-        <div class="sheet sheet--expanded">
+        <div class="sheet sheet--expanded" id="route-sheet" data-collapsible>
           <div class="sheet__handle"></div>
 
           <div class="eta">
@@ -327,7 +327,7 @@
 
         <nav class="nav-bar" aria-label="Основная навигация">
           <button class="nav-item" data-go="map"><svg class="icon"><use href="#i-map"/></svg><span>Карта</span></button>
-          <button class="nav-item is-active"><svg class="icon"><use href="#i-search"/></svg><span>Поиск</span></button>
+          <button class="nav-item is-active" data-go="search"><svg class="icon"><use href="#i-search"/></svg><span>Поиск</span></button>
           <button class="nav-item" data-go="nav"><svg class="icon"><use href="#i-route"/></svg><span>Маршрут</span></button>
           <button class="nav-item"><svg class="icon"><use href="#i-bookmark"/></svg><span>Метки</span></button>
           <button class="nav-item" data-go="settings"><svg class="icon"><use href="#i-settings"/></svg><span>Ещё</span></button>
@@ -497,7 +497,7 @@
           <button class="nav-item" data-go="search"><svg class="icon"><use href="#i-search"/></svg><span>Поиск</span></button>
           <button class="nav-item" data-go="nav"><svg class="icon"><use href="#i-route"/></svg><span>Маршрут</span></button>
           <button class="nav-item" data-go="place"><svg class="icon"><use href="#i-bookmark"/></svg><span>Метки</span></button>
-          <button class="nav-item is-active"><svg class="icon"><use href="#i-settings"/></svg><span>Ещё</span></button>
+          <button class="nav-item is-active" data-go="settings"><svg class="icon"><use href="#i-settings"/></svg><span>Ещё</span></button>
         </nav>
       </section>
     </div>
@@ -571,7 +571,7 @@
     <!-- route -->
     <g class="route" opacity="0">
       <path d="M198 760V500h158V176" fill="none" stroke="var(--map-route)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" opacity=".18"/>
-      <path d="M198 760V500h158V176" fill="none" stroke="var(--map-route)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+      <path class="route__line" d="M198 760V500h158V176" fill="none" stroke="var(--map-route)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
       <circle cx="198" cy="760" r="9" fill="var(--map-route)" stroke="var(--md-surface-container-lowest)" stroke-width="3"/>
     </g>
 
