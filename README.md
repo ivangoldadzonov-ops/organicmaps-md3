@@ -34,7 +34,9 @@
 Прототип — статические файлы, сборка не нужна.
 
 ```bash
-# любой статический сервер из корня репозитория
+# Linux / macOS
+./tools/serve.sh 8000
+# или любой статический сервер из корня репозитория
 python3 -m http.server 8000
 # или в PowerShell
 powershell -ExecutionPolicy Bypass -File tools/serve.ps1
@@ -55,7 +57,9 @@ powershell -ExecutionPolicy Bypass -File tools/serve.ps1
 - `?view=all` — режим «Все экраны»;
 - `#map`, `#nav`, `#search`, `#place`, `#settings` — прямой переход на экран.
 
-Живая версия (после включения Pages в Settings → Pages, источник — ветка `main`, папка `/`): <https://ivangoldadzonov-ops.github.io/organicmaps-md3/>.
+Живая версия: <https://ivangoldadzonov-ops.github.io/organicmaps-md3/>.
+
+Деплой автоматический: коммит в `main` запускает `.github/workflows/pages.yml`. Workflow собирает `_site/` в той же структуре, что и репозиторий (`prototype/` → `_site/prototype/`, `tokens/` → `_site/tokens/`, корневой `index.html` → `_site/index.html`), проверяет наличие обязательных файлов и публикует каталог через GitHub Actions. Корень сайта отдаёт страницу-редирект на `prototype/index.html`, поэтому прототип доступен и по короткому адресу, и напрямую. В настройках репозитория должен быть выбран источник **GitHub Actions** (Settings → Pages → Build and deployment → Source: GitHub Actions), а не ветка `main`.
 
 ## Экраны
 
